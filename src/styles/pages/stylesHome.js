@@ -1,4 +1,4 @@
-import { styles } from "styled-components";
+import styles from "styled-components";
 
 export const Container = styles.div`
 min-height: 100vh;
@@ -7,4 +7,5 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+background-color: #212121;
 `;
