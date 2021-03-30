@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Container } from "../styles/pages/Home";
+import { Container } from "../styles/pages/stylesHome";
 
 export default function Home() {
   return (
