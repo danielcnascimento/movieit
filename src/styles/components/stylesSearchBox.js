@@ -1,35 +1,33 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Header = styled.header`
+  max-width: 100vmax;
   display: flex;
-  flex-direction: column;
-  text-align: center;
+  justify-content: center;
 
-  position: absolute;
+  position: relative;
 
   top: 0;
   right: 0;
   left: 0;
+  padding: 0.8rem 0;
 
-  header {
-    display: flex;
-    justify-content: center;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #eaeaea;
 
-    position: relative;
+  background: #0e0e0e;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
 
-    padding: 0.8rem 0;
-
-    font-size: 2rem;
-    font-weight: 400;
-    color: #eaeaea;
-
-    background: #0e0e0e;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
-  }
-
-  header div span {
+  div span {
     color: #d13330;
   }
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 
   p {
     color: #eaeaea;

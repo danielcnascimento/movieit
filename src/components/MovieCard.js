@@ -1,20 +1,20 @@
 import React from "react";
 import {
-  Contain,
-  ImageContainer,
-  Titles,
+  CardContainer,
+  CardHeader,
 } from "../styles/components/stylesMovieCard";
 
 const MovieCard = () => {
   return (
-    <Contain>
-      <ImageContainer>
+    <CardContainer>
+      <CardHeader>
         <img src="icons/movie.svg" width={150} height={150} />
-      </ImageContainer>
-
-      <Titles>Movie name </Titles>
-      <Titles>Movie state </Titles>
-    </Contain>
+      </CardHeader>
+      <footer>
+        <strong>Movie name</strong>
+        <p>Movie state</p>
+      </footer>
+    </CardContainer>
   );
 };
 
