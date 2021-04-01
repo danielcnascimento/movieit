@@ -3,15 +3,23 @@ import {
   CardHeader,
 } from "../../styles/components/layout/stylesMovieCard";
 
-const MovieCard = () => {
+const MovieCard = ({ show }) => {
   return (
     <CardContainer>
       <CardHeader>
-        <img src="icons/movie.svg" />
+        <img
+          src={`${
+            show.image_thumbnail_path
+              ? show.image_thumbnail_path
+              : "icons/movie.svg"
+          }`}
+        />
       </CardHeader>
       <footer>
-        <strong>Movie name</strong>
-        <p>Movie state</p>
+        <strong>{show.name}</strong>
+        <span className={`${show.status === "Running" ? "running" : "ended"}`}>
+          {show.status}
+        </span>
       </footer>
     </CardContainer>
   );

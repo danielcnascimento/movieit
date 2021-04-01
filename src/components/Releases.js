@@ -1,19 +1,23 @@
-import { ReleaseContainer } from "../styles/components/stylesReleases";
+import { useContext } from "react";
+
 import MovieCard from "../components/layout/MovieCard";
 
+import { ReleaseContainer } from "../styles/components/stylesReleases";
+
+import { HomeContext } from "../context/HomeContext";
+
 function Releases() {
+  const { shows } = useContext(HomeContext);
+  console.log(shows);
+
   return (
     <ReleaseContainer>
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
+      {shows &&
+        shows.map((show) => (
+          <div key={show.id}>
+            <MovieCard show={show} />
+          </div>
+        ))}
     </ReleaseContainer>
   );
 }

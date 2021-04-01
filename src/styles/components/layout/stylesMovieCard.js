@@ -9,8 +9,14 @@ export const CardContainer = styled.div`
   flex-direction: column;
 
   footer {
+    width: 100%;
+
     padding-top: 1.5rem;
-    line-height: 0.5rem;
+    line-height: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 
   footer strong {
@@ -19,15 +25,37 @@ export const CardContainer = styled.div`
     color: var(--text);
   }
 
-  footer p {
+  footer span {
     font-size: 1rem;
     color: var(--text);
+    text-align: center;
+    font-weight: bold;
+
+    background: var(--dark-shade-1);
+
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+
+    border-radius: 20px;
+    border: 1px solid;
+  }
+
+  .running {
+    border-color: var(--red);
+
+    filter: brightness(0.9);
+    color: var(--red);
+  }
+
+  .ended {
+    border: 1px solid;
+    border-color: var(--dark-shade-0);
   }
 `;
 
 export const CardHeader = styled.div`
   width: 11.25rem;
-  height: 14.34rem;
+  height: 17rem;
 
   background: var(--dark-shade-1);
 
@@ -38,7 +66,11 @@ export const CardHeader = styled.div`
 
   img {
     width: 100%;
-    height: auto;
+    height: 100%;
+
+    background-size: cover;
+
+    border-radius: 10px;
 
     display: flex;
     align-items: center;

@@ -7,14 +7,14 @@ import Paginations from "../components/Paginations";
 import Releases from "../components/Releases";
 import { HomeProvider } from "../context/HomeContext";
 
-export default function Home() {
+export default function Home(props) {
   return (
     <>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HomeProvider>
+      <HomeProvider releases={props}>
         <SearchBox />
         <Container>
           <section>
@@ -29,3 +29,18 @@ export default function Home() {
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  const res = await fetch("https://www.episodate.com/api/most-popular");
+  const api_releases = await res.json();
+  const { total, page, pages, tv_shows } = api_releases;
+
+  return {
+    props: {
+      total,
+      page,
+      pages,
+      tv_shows,
+    },
+  };
+};
