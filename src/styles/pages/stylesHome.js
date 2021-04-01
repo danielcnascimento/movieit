@@ -24,18 +24,4 @@ export const Container = styled.div`
     border-left: 5px solid var(--red);
     padding-left: 0.5rem;
   }
-
-  section > div {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
-  }
-
-  .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding-bottom: 1.6rem;
-  }
 `;

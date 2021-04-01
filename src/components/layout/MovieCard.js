@@ -1,7 +1,7 @@
 import {
   CardContainer,
   CardHeader,
-} from "../styles/components/stylesMovieCard";
+} from "../../styles/components/layout/stylesMovieCard";
 
 const MovieCard = () => {
   return (
