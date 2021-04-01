@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { HomeContext } from "../context/HomeContext";
 import { Container, Header } from "../styles/components/stylesSearchBox";
 
 function SearchBox() {
+  const { makeSearch } = useContext(HomeContext);
+
   return (
     <>
       <Header>
@@ -11,11 +15,15 @@ function SearchBox() {
       </Header>
       <Container>
         <p>
-          <strong>MoveIt</strong> - Uma lista completa Series e Filmes das mais
-          famosas TVs de entreterimento
+          <strong>MovieIt</strong> - Uma lista completa: Series e Filmes das
+          mais famosas TVs de entreterimento
         </p>
         <div>
-          <input type="text" placeholder="Procurar no MovieIt" />
+          <input
+            type="text"
+            onKeyPress={(e) => makeSearch(e.target.value)}
+            placeholder="Procurar no MovieIt"
+          />
         </div>
       </Container>
     </>

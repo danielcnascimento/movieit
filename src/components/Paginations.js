@@ -5,7 +5,6 @@ import { HomeContext } from "../context/HomeContext";
 
 function Paginations() {
   const { handleChangePage } = useContext(HomeContext);
-  console.log(handleChangePage);
 
   return (
     <Pages>

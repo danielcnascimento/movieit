@@ -64,6 +64,8 @@ export const CardHeader = styled.div`
 
   border-radius: 10px;
 
+  cursor: pointer;
+
   img {
     width: 100%;
     height: 100%;
@@ -75,5 +77,12 @@ export const CardHeader = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    transition: filter 0.3s ease;
+  }
+
+  img:hover {
+    filter: brightness(125%);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.2);
   }
 `;

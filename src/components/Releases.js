@@ -8,7 +8,6 @@ import { HomeContext } from "../context/HomeContext";
 
 function Releases() {
   const { shows } = useContext(HomeContext);
-  console.log(shows);
 
   return (
     <ReleaseContainer>
