@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useContext } from "react";
 import Pagination from "@material-ui/lab/Pagination";
 import { Pages } from "../styles/components/stylesPagination";
+import { HomeContext } from "../context/HomeContext";
 
 function Paginations() {
-  const [page, setPage] = useState(null);
-
-  const handleChangePage = (event, thisPage) => event && setPage(thisPage);
+  const { handleChangePage } = useContext(HomeContext);
+  console.log(handleChangePage);
 
   return (
     <Pages>
