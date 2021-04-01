@@ -1,9 +1,22 @@
+import { createGlobalStyle } from "styled-components";
+
+export default createGlobalStyle`
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+:root {
+  --white: #ffffff;
+  --red:#d13330;
+  --text: #fafafa;
+  --dark-line: #292B28;
+  --background: #212121;
+  --dark-shade-0: #0e0e0e;
+  --dark-shade-1: #17161c;
 }
 
 a {
@@ -28,7 +41,7 @@ a {
 }
 
 body {
-  background: #212121;
+  background: var(--background);
 }
 
 body,
@@ -49,3 +62,5 @@ li {
   text-decoration: none;
   list-style-type: none;
 }
+
+`;

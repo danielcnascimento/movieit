@@ -1,4 +1,3 @@
-import React from "react";
 import {
   CardContainer,
   CardHeader,
@@ -8,7 +7,7 @@ const MovieCard = () => {
   return (
     <CardContainer>
       <CardHeader>
-        <img src="icons/movie.svg" width={150} height={150} />
+        <img src="icons/movie.svg" />
       </CardHeader>
       <footer>
         <strong>Movie name</strong>

@@ -14,14 +14,14 @@ export const Container = styled.div`
     padding: 1.6rem 0;
     margin: 1.6rem 0;
 
-    border: solid #080808;
+    border: solid var(--dark-line);
     border-width: 1px 0;
   }
 
   section > p {
     font-size: 1.25rem;
-    color: #ffffff;
-    border-left: 5px solid #d13330;
+    color: var(--white);
+    border-left: 5px solid var(--red);
     padding-left: 0.5rem;
   }
 

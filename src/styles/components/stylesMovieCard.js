@@ -16,12 +16,12 @@ export const CardContainer = styled.div`
   footer strong {
     font-size: 1rem;
     font-weight: 400;
-    color: #fafafa;
+    color: var(--text);
   }
 
   footer p {
     font-size: 1rem;
-    color: #fafafa;
+    color: var(--text);
   }
 `;
 
@@ -29,11 +29,19 @@ export const CardHeader = styled.div`
   width: 11.25rem;
   height: 14.34rem;
 
-  background-color: #17161c;
+  background: var(--dark-shade-1);
 
   display: flex;
-  justify-content: center;
   align-items: center;
 
   border-radius: 10px;
+
+  img {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
