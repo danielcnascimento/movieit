@@ -4,7 +4,7 @@ import { Pages } from "../styles/components/stylesPagination";
 import { HomeContext } from "../context/MoviesDataContext";
 
 function Paginations() {
-  const { handleChangePage, moviesData } = useContext(HomeContext);
+  const { handleChangePage, moviesData, isLoading } = useContext(HomeContext);
 
   return (
     <Pages>
@@ -12,6 +12,7 @@ function Paginations() {
         count={moviesData.totalPages}
         onChange={handleChangePage}
         color="secondary"
+        disabled={isLoading}
         hidePrevButton
         hideNextButton
       />

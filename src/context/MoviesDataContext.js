@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { loadSearch } from "../services/api";
 
 export const HomeContext = createContext({});
@@ -12,9 +12,9 @@ export const MoviesDataProvider = ({ children, releases }) => {
     totalPages: pages,
     shows: tv_shows,
   };
-
   const [moviesData, setMoviesData] = useState(initialMoviesData);
   const [isSearching, setIsSearching] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [targetSearch, setTargetSearch] = useState("");
   let urlType;
 
@@ -24,10 +24,14 @@ export const MoviesDataProvider = ({ children, releases }) => {
       ? (urlType = `search?q=${targetSearch}&`)
       : (urlType = `most-popular?`);
 
+    setIsLoading(true);
+
     const res = await fetch(
       `https://www.episodate.com/api/${urlType}page=${thisPage}`
     );
     const newPage = await res.json();
+
+    setIsLoading(false);
 
     setMoviesData({
       totalMoviesResults: newPage.total,
@@ -46,7 +50,7 @@ export const MoviesDataProvider = ({ children, releases }) => {
       return;
     } else {
       setIsSearching(true);
-
+      setIsLoading(true);
       setTargetSearch(text);
 
       const result = await loadSearch(text);
@@ -57,6 +61,7 @@ export const MoviesDataProvider = ({ children, releases }) => {
           totalPages: result.data.pages,
           shows: result.data.tv_shows,
         });
+        setIsLoading(false);
       }
     }
   };
@@ -66,6 +71,7 @@ export const MoviesDataProvider = ({ children, releases }) => {
       value={{
         moviesData,
         isSearching,
+        isLoading,
         handleChangePage,
         searchHandler,
       }}
