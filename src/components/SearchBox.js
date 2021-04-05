@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { HomeContext } from "../context/HomeContext";
+import { HomeContext } from "../context/MoviesDataContext";
 import { Container, Header } from "../styles/components/stylesSearchBox";
 
 function SearchBox() {
-  const { makeSearch } = useContext(HomeContext);
+  const { searchHandler } = useContext(HomeContext);
 
   return (
     <>
@@ -21,7 +21,7 @@ function SearchBox() {
         <div>
           <input
             type="text"
-            onKeyPress={(e) => makeSearch(e.target.value)}
+            onChange={(e) => searchHandler(e.target.value)}
             placeholder="Procurar no MovieIt"
           />
         </div>

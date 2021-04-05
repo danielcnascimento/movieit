@@ -5,7 +5,8 @@ import { Container } from "../styles/pages/stylesHome";
 import SearchBox from "../components/SearchBox";
 import Paginations from "../components/Paginations";
 import Releases from "../components/Releases";
-import { HomeProvider } from "../context/HomeContext";
+
+import { MoviesDataProvider } from "../context/MoviesDataContext";
 
 export default function Home(props) {
   return (
@@ -14,7 +15,7 @@ export default function Home(props) {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HomeProvider releases={props}>
+      <MoviesDataProvider releases={props}>
         <SearchBox />
         <Container>
           <section>
@@ -25,7 +26,7 @@ export default function Home(props) {
             <Paginations />
           </div>
         </Container>
-      </HomeProvider>
+      </MoviesDataProvider>
     </>
   );
 }
@@ -37,7 +38,6 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      total,
       page,
       pages,
       tv_shows,
