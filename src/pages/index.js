@@ -1,51 +1,45 @@
 import Head from "next/head";
-import { useState } from "react";
-
-import SearchBox from "../components/SearchBox";
-import MovieCard from "../components/MovieCard";
 
 import { Container } from "../styles/pages/stylesHome";
-import Pagination from "@material-ui/lab/Pagination";
 
-export default function Home() {
-  const [page, setPage] = useState(null);
+import SearchBox from "../components/SearchBox";
+import Paginations from "../components/Paginations";
+import Releases from "../components/Releases";
 
-  const handleChangePage = (event, thisPage) => event && setPage(thisPage);
+import { MoviesDataProvider } from "../context/MoviesDataContext";
 
+export default function Home(props) {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>MovieIt | Mais Populares</title>
+        <link rel="shortcut icon" href="movieit-icon.png" type="image/png" />
       </Head>
-      <SearchBox />
-      <Container>
-        <section>
-          <p>Lançamentos</p>
+      <MoviesDataProvider releases={props}>
+        <SearchBox />
+        <Container>
+          <section>
+            <Releases />
+          </section>
           <div>
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
+            <Paginations />
           </div>
-        </section>
-        <div className="pagination">
-          <Pagination
-            count={1000}
-            onChange={handleChangePage}
-            color="secondary"
-            variant="outlined"
-            hidePrevButton
-            hideNextButton
-          />
-        </div>
-      </Container>
+        </Container>
+      </MoviesDataProvider>
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  const res = await fetch("https://www.episodate.com/api/most-popular");
+  const api_releases = await res.json();
+  const { total, page, pages, tv_shows } = api_releases;
+
+  return {
+    props: {
+      page,
+      pages,
+      tv_shows,
+    },
+  };
+};
