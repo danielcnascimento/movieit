@@ -19,7 +19,6 @@ export default function Home(props) {
         <SearchBox />
         <Container>
           <section>
-            <p>Lançamentos</p>
             <Releases />
           </section>
           <div>
