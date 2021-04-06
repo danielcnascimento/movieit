@@ -12,8 +12,8 @@ export default function Home(props) {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>MovieIt | Mais Populares</title>
+        <link rel="shortcut icon" href="movieit-icon.png" type="image/png" />
       </Head>
       <MoviesDataProvider releases={props}>
         <SearchBox />

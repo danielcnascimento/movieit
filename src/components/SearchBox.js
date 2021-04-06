@@ -1,18 +1,14 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
+import Header from "../components/layout/Header";
 import { HomeContext } from "../context/MoviesDataContext";
-import { Container, Header } from "../styles/components/stylesSearchBox";
+import { Container } from "../styles/components/stylesSearchBox";
 
 function SearchBox() {
   const { searchHandler } = useContext(HomeContext);
 
   return (
     <>
-      <Header>
-        <div>
-          <strong>Movie</strong>
-          <span>It</span>
-        </div>
-      </Header>
+      <Header />
       <Container>
         <p>
           <strong>MovieIt</strong> - Uma lista completa: Series e Filmes das
