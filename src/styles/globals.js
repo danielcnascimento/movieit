@@ -13,10 +13,12 @@ body {
   --white: #ffffff;
   --red:#d13330;
   --text: #fafafa;
+  --gray-line: #404040;
   --dark-line: #292B28;
   --background: #212121;
   --dark-shade-0: #0e0e0e;
   --dark-shade-1: #17161c;
+  --dark-shade-2: #323231;
 }
 
 a {
