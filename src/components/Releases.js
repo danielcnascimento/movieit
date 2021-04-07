@@ -1,5 +1,7 @@
 import { useContext } from "react";
 
+import Link from "next/link";
+
 import MovieCard from "../components/layout/MovieCard";
 
 import {
@@ -22,9 +24,15 @@ function Releases() {
       <ReleaseContainer>
         {moviesData.shows &&
           moviesData.shows.map((show) => (
-            <div key={show.id}>
-              <MovieCard show={show} />
-            </div>
+            <Link
+              key={show.id}
+              href="/shows/permalink"
+              as={`/shows/${show.permalink}`}
+            >
+              <div>
+                <MovieCard show={show} />
+              </div>
+            </Link>
           ))}
       </ReleaseContainer>
     </>

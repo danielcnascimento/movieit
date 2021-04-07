@@ -6,7 +6,7 @@ function Header() {
       <div>
         <strong>Movie</strong>
         <span>It</span>
-        <img src="icons/logo.svg" />
+        <img src="/icons/logo.svg" />
       </div>
     </Heading>
   );

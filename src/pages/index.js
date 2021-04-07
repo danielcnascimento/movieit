@@ -33,7 +33,7 @@ export default function Home(props) {
 export const getStaticProps = async () => {
   const res = await fetch("https://www.episodate.com/api/most-popular");
   const api_releases = await res.json();
-  const { total, page, pages, tv_shows } = api_releases;
+  const { page, pages, tv_shows } = api_releases;
 
   return {
     props: {
@@ -41,5 +41,6 @@ export const getStaticProps = async () => {
       pages,
       tv_shows,
     },
+    revalidate: 10,
   };
 };

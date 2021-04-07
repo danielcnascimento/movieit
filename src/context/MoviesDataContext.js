@@ -7,7 +7,7 @@ export const MoviesDataProvider = ({ children, releases }) => {
   const { tv_shows, page, pages } = releases;
 
   const initialMoviesData = {
-    totalMoviesResults: null,
+    totalMoviesResults: 0,
     currentPage: page,
     totalPages: pages,
     shows: tv_shows,
