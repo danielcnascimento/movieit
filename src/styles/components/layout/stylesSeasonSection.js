@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 1080px;
+  width: 100%;
   height: auto;
 
   margin-top: 1rem;
@@ -17,14 +17,25 @@ export const Container = styled.div`
 
   flex-direction: column;
 
-  h5 {
-    color: white;
+  strong {
+    color: var(--text);
+    font-weight: 500;
+    padding: 1rem 0;
   }
 `;
 
 export const SeasonContainer = styled.div`
-  width: 1080px;
-  height: 70px;
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+
+  flex-direction: column;
+`;
+
+export const SeasonHeader = styled.div`
+  width: inherit;
+  height: 4.4rem;
 
   background-color: var(--dark-shade-0);
 
@@ -36,10 +47,12 @@ export const SeasonContainer = styled.div`
 `;
 
 export const Titles = styled.div`
-  width: 234px;
-  height: 70px;
+  width: 20%;
+  height: auto;
 
-  background-color: var(--red);
+  background: var(--red);
+
+  flex: 1;
 
   display: inherit;
   justify-content: center;
@@ -47,10 +60,12 @@ export const Titles = styled.div`
 
   flex-direction: column;
 
-  padding: 2px;
+  border: solid var(--white);
+  border-width: 0px 1px;
+  box-shadow: 0 0 20 rgb(0, 0, 0);
 
   h1 {
-    color: white;
+    color: var(--text);
     font-size: 2rem;
 
     margin: 0;
@@ -58,21 +73,21 @@ export const Titles = styled.div`
   }
 
   p {
-    color: white;
+    color: var(--text);
 
     margin: 0;
     padding: 0;
   }
 `;
 
-export const EposideContainer = styled.div`
+export const EpisodesContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 
   flex-direction: row;
 
-  margin: 1rem;
+  padding: 1rem 5rem;
 
   img {
     width: 6.25rem;
@@ -81,17 +96,18 @@ export const EposideContainer = styled.div`
 
   div {
     margin-left: 0.5rem;
+    border-left: 3px solid var(--red);
   }
-  h3 {
-    color: white;
+  div h3 {
+    color: var(--text);
 
-    margin: 0;
+    margin: 0.4rem;
     padding: 0;
   }
-  p {
-    color: white;
+  div p {
+    color: var(--text);
 
-    margin: 0;
+    margin: 0.4rem;
     padding: 0;
   }
 `;

@@ -14,6 +14,7 @@ export const DetailContainer = styled.div`
 
 export const Header = styled.header`
   position: relative;
+
   width: 100%;
   display: flex;
 
@@ -33,7 +34,7 @@ export const Header = styled.header`
 
 export const Body = styled.body`
   width: 100%;
-  height: 260px;
+  height: 17rem;
 
   justify-content: flex-start;
   display: flex;
@@ -53,6 +54,9 @@ export const Body = styled.body`
       transform: translateY(-30%);
 
       img {
+        width: 15.5rem;
+        height: 21rem;
+
         position: relative;
 
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -63,6 +67,12 @@ export const Body = styled.body`
   }
 
   .secondChild {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    flex-direction: column;
+
     position: relative;
 
     padding: 0 1.25rem;
@@ -82,7 +92,7 @@ export const Body = styled.body`
       align-items: center;
       justify-content: center;
 
-      padding: 0.5rem 0;
+      padding: 0.5rem;
 
       border: 1px dashed var(--red);
       border-radius: 5px;

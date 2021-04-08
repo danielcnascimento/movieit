@@ -1,31 +1,65 @@
-import React from "react";
 import {
   SeasonContainer,
+  SeasonHeader,
   Container,
   Titles,
-  EposideContainer,
+  EpisodesContainer,
 } from "../../styles/components/layout/stylesSeasonSection";
 
-const SeasonSection = ({ eposides }) => {
+import Collapse from "@material-ui/core/Collapse";
+import { useState } from "react";
+
+const SeasonSection = (props) => {
+  const { tvShow } = props;
+
+  const lastEposide = tvShow.episodes[tvShow.episodes.length - 1];
+  //array of seasons numbers
+  const seasons = Array.from({ length: lastEposide.season }, (v, i) => i + 1);
+  //numbers of episodes
+  const episodes = tvShow.episodes.length;
+
   return (
     <Container>
-      <h5> Seasons and Eposide</h5>
+      <strong>
+        {tvShow.name} &bull; {seasons.length} &nbsp;Temporadas e {episodes}
+        &nbsp; Episódios registrados &bull; Selecione-os
+      </strong>
 
-      <SeasonContainer>
-        <Titles>
-          <h1>1</h1>
-          <p> 7 eposides</p>
-        </Titles>
-      </SeasonContainer>
-
-      <EposideContainer>
-        <img src="/icons/movie.svg" />
-        <div>
-          <h3>Pilot</h3>
-          <p>air-date :2014-10-08</p>
-        </div>
-      </EposideContainer>
+      {seasons.map((season, index) => (
+        <SeasonRow key={index} season={season} tvShow={tvShow} />
+      ))}
     </Container>
+  );
+};
+
+const SeasonRow = ({ season, tvShow }) => {
+  const [isShowing, setIsShowing] = useState(false);
+
+  return (
+    <SeasonContainer>
+      <SeasonHeader onClick={() => setIsShowing(!isShowing)}>
+        <Titles>
+          <h1>{season}&ordf;</h1>
+          <p>
+            {tvShow.episodes.filter((eps) => season === eps.season).length}
+            &nbsp;Episodes
+          </p>
+        </Titles>
+      </SeasonHeader>
+      {tvShow.episodes
+        .filter((eps) => season === eps.season)
+        .map((eps, index) => (
+          <Collapse in={isShowing} key={index} timeout="auto" unmountOnExit>
+            <EpisodesContainer>
+              <img src="/icons/movie.svg" />
+              <div>
+                <h3>{eps.name}</h3>
+                <p>air-date : {eps.air_date}</p>
+              </div>
+            </EpisodesContainer>
+          </Collapse>
+        ))}
+    </SeasonContainer>
   );
 };
 

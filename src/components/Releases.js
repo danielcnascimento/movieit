@@ -24,11 +24,7 @@ function Releases() {
       <ReleaseContainer>
         {moviesData.shows &&
           moviesData.shows.map((show) => (
-            <Link
-              key={show.id}
-              href="/shows/permalink"
-              as={`/shows/${show.permalink}`}
-            >
+            <Link key={show.id} href={`/shows/${show.permalink}`}>
               <div>
                 <MovieCard show={show} />
               </div>

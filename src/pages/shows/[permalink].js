@@ -22,7 +22,7 @@ function Shows({ tvShow }) {
         </section>
 
         <section>
-          <SeasonsSection />
+          <SeasonsSection tvShow={tvShow} />
         </section>
       </Container>
     </>
