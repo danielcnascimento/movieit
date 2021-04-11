@@ -18,7 +18,7 @@ function Releases() {
     <>
       <ReleaseTitle>
         {!isSearching
-          ? "Lançamentos"
+          ? "Mais Populares"
           : moviesData.totalMoviesResults + " resultado(s) encontrados!"}
       </ReleaseTitle>
       <ReleaseContainer>
