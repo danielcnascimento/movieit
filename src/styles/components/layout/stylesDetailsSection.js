@@ -36,12 +36,13 @@ export const Body = styled.body`
   width: 100%;
   height: 17rem;
 
-  justify-content: flex-start;
   display: flex;
+  justify-content: flex-start;
 
   background: var(--dark-shade-2);
 
   padding: 0 5rem;
+  margin: 1rem 0;
 
   position: relative;
 

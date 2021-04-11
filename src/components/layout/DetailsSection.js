@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 
 import moment from "moment";
 
@@ -36,10 +37,12 @@ const DetailsSection = ({ tvShow }) => {
 
   moment.locale("pt-br");
 
+  console.log(youtube_link);
+
   return (
     <DetailContainer>
       <Header>
-        <img src={image_path} />
+        <Image layout="intrinsic" src={image_path} width={1300} height={350} />
       </Header>
       <Body>
         <div className="firstChild">
@@ -49,10 +52,18 @@ const DetailsSection = ({ tvShow }) => {
         </div>
         <div className="secondChild">
           <div className="showTitle">
-            <h1>{name}</h1>
-            <strong>
-              {youtube_link && <a href={`${youtube_link}`}>Assistir</a>}
-            </strong>
+            <h1>
+              {name}
+              {youtube_link && (
+                <a
+                  href={`https://www.youtube.com/watch?v=${youtube_link}`}
+                  target="_blank"
+                >
+                  &nbsp;&bull; Assistir trailer
+                </a>
+              )}
+            </h1>
+            <strong></strong>
           </div>
           <div className="showRating">
             {rating_count > 0 ? (
