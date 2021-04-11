@@ -7,7 +7,6 @@ export const SectionContainer = styled.section`
 
     color: var(--text);
   }
-
   .shadowOverlay:hover {
     position: relative;
 
@@ -15,14 +14,16 @@ export const SectionContainer = styled.section`
     .descriptionPost {
       display: initial;
 
-      strong {
-        transition-delay: 1s;
-      }
+      transition: 300ms;
     }
 
     img {
       filter: brightness(0.6);
-      transition: 300ms;
+
+      border-radius: 5px;
+      border: 1px solid var(--red);
+
+      transition: 230ms;
     }
   }
 

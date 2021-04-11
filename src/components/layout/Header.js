@@ -2,7 +2,7 @@ import { Heading } from "../../styles/components/layout/stylesHeader";
 
 function Header() {
   return (
-    <Heading>
+    <Heading id="movieitMainHeader">
       <div>
         <strong>Movie</strong>
         <span>It</span>

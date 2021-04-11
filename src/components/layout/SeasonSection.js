@@ -7,7 +7,10 @@ import {
 } from "../../styles/components/layout/stylesSeasonSection";
 
 import Collapse from "@material-ui/core/Collapse";
+
 import { useState } from "react";
+
+import moment from "moment";
 
 const SeasonSection = (props) => {
   const { tvShow } = props;
@@ -21,8 +24,10 @@ const SeasonSection = (props) => {
   return (
     <Container>
       <strong>
-        {tvShow.name} &bull; {seasons.length} &nbsp;Temporadas e {episodes}
-        &nbsp; Episódios registrados &bull; Selecione-os
+        {tvShow.name} &bull; {seasons.length}&nbsp;
+        {seasons.length > 1 ? "Temporadas" : "Temporada"} e {episodes}&nbsp;
+        {episodes > 1 ? "Episódios" : "Episódio"}
+        &nbsp;registrados &bull; Selecione-os
       </strong>
 
       {seasons.map((season, index) => (
@@ -35,14 +40,15 @@ const SeasonSection = (props) => {
 const SeasonRow = ({ season, tvShow }) => {
   const [isShowing, setIsShowing] = useState(false);
 
+  let episodes = tvShow.episodes.filter((eps) => season === eps.season).length;
+
   return (
     <SeasonContainer>
       <SeasonHeader onClick={() => setIsShowing(!isShowing)}>
         <Titles>
           <h1>{season}&ordf;</h1>
           <p>
-            {tvShow.episodes.filter((eps) => season === eps.season).length}
-            &nbsp;Episodes
+            {episodes}&nbsp;{episodes > 1 ? "Episódios" : "Episódio"}
           </p>
         </Titles>
       </SeasonHeader>
@@ -54,7 +60,7 @@ const SeasonRow = ({ season, tvShow }) => {
               <img src="/icons/movie.svg" />
               <div>
                 <h3>{eps.name}</h3>
-                <p>air-date : {eps.air_date}</p>
+                <p>{moment(eps.air_date).format("ll")}</p>
               </div>
             </EpisodesContainer>
           </Collapse>

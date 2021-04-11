@@ -5,6 +5,8 @@ import {
   PauseCircleFilledOutlined,
 } from "@material-ui/icons";
 
+import moment from "moment";
+
 const MovieCard = ({ show }) => {
   return (
     <SectionContainer>
@@ -18,10 +20,13 @@ const MovieCard = ({ show }) => {
             <div className="postFooter">
               <p>
                 <PlayCircleFilledOutlined />
-                {show.start_date}
+                &nbsp;
+                {moment(show.start_date).format("L")}
               </p>
               <p>
-                <PauseCircleFilledOutlined /> {show.end_date ?? "-/-/-"}
+                <PauseCircleFilledOutlined />
+                &nbsp;
+                {show.end_date ? moment(show.end_date).format("L") : "-/-/-"}
               </p>
             </div>
           </div>
