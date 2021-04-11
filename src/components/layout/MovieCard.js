@@ -1,27 +1,39 @@
+import { SectionContainer } from "../../styles/components/layout/stylesMovieCard";
+
 import {
-  CardContainer,
-  CardHeader,
-} from "../../styles/components/layout/stylesMovieCard";
+  PlayCircleFilledOutlined,
+  PauseCircleFilledOutlined,
+} from "@material-ui/icons";
 
 const MovieCard = ({ show }) => {
   return (
-    <CardContainer>
-      <CardHeader>
-        <img
-          src={`${
-            show.image_thumbnail_path
-              ? show.image_thumbnail_path
-              : "icons/movie.svg"
-          }`}
-        />
-      </CardHeader>
-      <footer>
-        <strong>{show.name}</strong>
-        <span className={`${show.status === "Running" ? "running" : "ended"}`}>
-          {show.status}
-        </span>
-      </footer>
-    </CardContainer>
+    <SectionContainer>
+      <div>
+        <div className="shadowOverlay">
+          <div className="descriptionPost">
+            <div className="postHeader">
+              <strong>{show.name}</strong>
+              <span>{show.country}</span>
+            </div>
+            <div className="postFooter">
+              <p>
+                <PlayCircleFilledOutlined />
+                {show.start_date}
+              </p>
+              <p>
+                <PauseCircleFilledOutlined /> {show.end_date ?? "-/-/-"}
+              </p>
+            </div>
+          </div>
+          <img
+            src={show.image_thumbnail_path ?? "/icons/movie.svg"}
+            alt={`${show.name}`}
+            width={223}
+            height={360}
+          />
+        </div>
+      </div>
+    </SectionContainer>
   );
 };
 

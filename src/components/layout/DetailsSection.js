@@ -4,7 +4,12 @@ import {
   Body,
   Footer,
 } from "../../styles/components/layout/stylesDetailsSection";
-import { Public, PlayArrow, Stop, Tv } from "@material-ui/icons";
+import {
+  Public,
+  PlayCircleFilledOutlined,
+  PauseCircleFilledOutlined,
+  LiveTvOutlined,
+} from "@material-ui/icons";
 import Rating from "@material-ui/lab/Rating";
 import { useState } from "react";
 
@@ -44,15 +49,15 @@ const DetailsSection = ({ tvShow }) => {
           </div>
           <div>
             <p>
-              <PlayArrow style={{ color: "#17161c" }} />
+              <PlayCircleFilledOutlined style={{ color: "#17161c" }} />
               &nbsp; lançado em: {start_date}
             </p>
             <p>
-              <Stop style={{ color: "#17161c" }} />
+              <PauseCircleFilledOutlined style={{ color: "#17161c" }} />
               &nbsp; previsão: {end_date}
             </p>
             <p>
-              <Tv style={{ color: "#17161c" }} />
+              <LiveTvOutlined style={{ color: "#17161c" }} />
               &nbsp; status: {status}
             </p>
             <p>

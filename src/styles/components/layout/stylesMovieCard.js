@@ -1,88 +1,79 @@
 import styled from "styled-components";
 
-export const CardContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const SectionContainer = styled.section`
+  > div {
+    position: relative;
+    display: block;
 
-  padding: 1.8rem 0;
-  flex-direction: column;
-
-  footer {
-    width: 100%;
-
-    padding-top: 1.5rem;
-    line-height: 1rem;
-
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  footer strong {
-    font-size: 1rem;
-    font-weight: 400;
     color: var(--text);
   }
 
-  footer span {
-    font-size: 1rem;
-    color: var(--text);
-    text-align: center;
-    font-weight: bold;
+  .shadowOverlay:hover {
+    position: relative;
 
-    background: var(--dark-shade-1);
+    cursor: pointer;
+    .descriptionPost {
+      display: initial;
 
-    padding: 0.5rem 1rem;
-    margin-top: 1rem;
+      strong {
+        transition-delay: 1s;
+      }
+    }
 
-    border-radius: 20px;
-    border: 1px solid;
+    img {
+      filter: brightness(0.6);
+      transition: 300ms;
+    }
   }
 
-  .running {
-    border-color: var(--red);
+  .descriptionPost {
+    display: none;
 
-    filter: brightness(0.9);
-    color: var(--red);
-  }
+    .postHeader {
+      position: absolute;
+      top: 5%;
+      left: 10px;
 
-  .ended {
-    border: 1px solid;
-    border-color: var(--dark-shade-0);
-  }
-`;
+      z-index: 3;
 
-export const CardHeader = styled.div`
-  width: 11.25rem;
-  height: 17rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
 
-  background: var(--dark-shade-1);
+      flex-direction: column;
 
-  display: flex;
-  align-items: center;
+      span {
+        padding: 0.5rem;
+        margin-top: 0.5rem;
 
-  border-radius: 10px;
+        border: 1px solid var(--red);
+        background: var(--dark-shade-1);
+      }
+    }
 
-  cursor: pointer;
+    .postFooter {
+      position: absolute;
+      bottom: 0;
+      left: 10px;
 
-  img {
-    width: 100%;
-    height: 100%;
+      padding-bottom: 1rem;
 
-    background-size: cover;
+      z-index: 3;
 
-    border-radius: 10px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+      flex-direction: column;
 
-    transition: filter 0.3s ease;
-  }
+      p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-  img:hover {
-    filter: brightness(125%);
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.2);
+        margin-top: 0.5rem;
+        line-height: 2rem;
+      }
+    }
   }
 `;
