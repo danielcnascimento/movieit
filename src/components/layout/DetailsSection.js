@@ -38,12 +38,16 @@ const DetailsSection = (tvShow) => {
 
   moment.locale("pt-br");
 
-  console.log(youtube_link);
-
   return (
     <DetailContainer>
       <Header>
-        <Image layout="intrinsic" src={image_path} width={1300} height={350} />
+        <Image
+          loading="eager"
+          layout="intrinsic"
+          src={image_path}
+          width={1300}
+          height={350}
+        />
       </Header>
       <Body>
         <div className="firstChild">

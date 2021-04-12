@@ -16,16 +16,19 @@ export const Header = styled.header`
   position: relative;
 
   width: 100%;
+  height: 21.9rem;
+
   display: flex;
 
   background: var(--dark-shade-2);
 
   img {
     width: 100%;
-    height: 21.9rem;
+    height: auto;
 
     object-fit: cover;
-    background-size: cover;
+    object-position: 50% 95%;
+
     position: relative;
 
     filter: brightness(0.5);

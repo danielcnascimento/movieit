@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 
 import { Container } from "../../styles/pages/stylesShows";
@@ -5,20 +6,21 @@ import { Container } from "../../styles/pages/stylesShows";
 import Header from "../../components/layout/Header";
 import DetailsSection from "../../components/layout/DetailsSection";
 import SeasonsSection from "../../components/layout/SeasonSection";
+import Loading from "../../components/layout/Loading";
 
 function Shows({ tvShow }) {
   const { isFallback } = useRouter();
 
   if (isFallback) {
-    return (
-      <p style={{ color: "#fff" }}>
-        Estamos retornando todos os detalhes para você 😃...
-      </p>
-    );
+    return <Loading />;
   }
 
   return (
     <>
+      <Head>
+        <title>Ver {tvShow.name} - Todos os Episódios - MovieIt!</title>
+        <link rel="shortcut icon" href="movieit-icon.png" type="image/png" />
+      </Head>
       <Header />
       <Container>
         <section>

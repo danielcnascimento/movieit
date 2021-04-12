@@ -12,7 +12,7 @@ export default function Home(props) {
   return (
     <>
       <Head>
-        <title>MovieIt | Mais Populares</title>
+        <title>MovieIt | Filmes e Series mais populares!</title>
         <link rel="shortcut icon" href="movieit-icon.png" type="image/png" />
       </Head>
       <MoviesDataProvider releases={props}>
