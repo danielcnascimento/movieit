@@ -44,6 +44,8 @@ export const SeasonHeader = styled.div`
   align-items: center;
 
   flex-direction: column;
+
+  cursor: row-resize;
 `;
 
 export const Titles = styled.div`
@@ -61,7 +63,7 @@ export const Titles = styled.div`
   flex-direction: column;
 
   border: solid var(--white);
-  border-width: 0px 1px;
+  border-width: 0 1px;
   box-shadow: 0 0 20 rgb(0, 0, 0);
 
   h1 {
@@ -89,14 +91,19 @@ export const EpisodesContainer = styled.div`
 
   padding: 1rem 5rem;
 
+  position: relative;
   img {
     width: 6.25rem;
     height: auto;
+
+    object-fit: cover;
   }
 
-  div {
+  div:last-child {
     margin-left: 0.5rem;
-    border-left: 3px solid var(--red);
+    border: solid var(--red);
+
+    border-width: 0 0 0 3px;
   }
   div h3 {
     color: var(--text);

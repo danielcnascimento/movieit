@@ -7,32 +7,38 @@ import {
 
 import moment from "moment";
 
-const MovieCard = ({ show }) => {
+const MovieCard = ({
+  name,
+  country,
+  start_date,
+  end_date,
+  image_thumbnail_path,
+}) => {
   return (
     <SectionContainer>
       <div>
         <div className="shadowOverlay">
           <div className="descriptionPost">
             <div className="postHeader">
-              <strong>{show.name}</strong>
-              <span>{show.country}</span>
+              <strong>{name}</strong>
+              <span>{country}</span>
             </div>
             <div className="postFooter">
               <p>
                 <PlayCircleFilledOutlined />
                 &nbsp;
-                {moment(show.start_date).format("L")}
+                {start_date ? moment(start_date).format("L") : "Indefinido!"}
               </p>
               <p>
                 <PauseCircleFilledOutlined />
                 &nbsp;
-                {show.end_date ? moment(show.end_date).format("L") : "-/-/-"}
+                {end_date ? moment(end_date).format("L") : "-/-/-"}
               </p>
             </div>
           </div>
           <img
-            src={show.image_thumbnail_path ?? "/icons/movie.svg"}
-            alt={`${show.name}`}
+            src={image_thumbnail_path ?? "/icons/movie.svg"}
+            alt={`${name}`}
             width={223}
             height={360}
           />

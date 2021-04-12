@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import Header from "../components/layout/Header";
-import { HomeContext } from "../context/MoviesDataContext";
+import { MovieDataContext } from "../context/MoviesDataContext";
 import { Container } from "../styles/components/stylesSearchBox";
 
 function SearchBox() {
-  const { searchHandler } = useContext(HomeContext);
+  const { searchHandler } = useContext(MovieDataContext);
 
   return (
     <>

@@ -9,10 +9,10 @@ import {
   ReleaseTitle,
 } from "../styles/components/stylesReleases";
 
-import { HomeContext } from "../context/MoviesDataContext";
+import { MovieDataContext } from "../context/MoviesDataContext";
 
 function Releases() {
-  const { moviesData, isSearching } = useContext(HomeContext);
+  const { moviesData, isSearching } = useContext(MovieDataContext);
 
   return (
     <>
@@ -26,7 +26,7 @@ function Releases() {
           moviesData.shows.map((show) => (
             <Link key={show.id} href={`/shows/${show.permalink}`}>
               <div>
-                <MovieCard show={show} />
+                <MovieCard {...show} />
               </div>
             </Link>
           ))}

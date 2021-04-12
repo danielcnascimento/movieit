@@ -86,6 +86,15 @@ export const Body = styled.body`
       font-weight: 500;
       line-height: 1rem;
       text-align: start;
+
+      span {
+        color: var(--red);
+        text-transform: uppercase;
+      }
+
+      a {
+        cursor: alias;
+      }
     }
 
     .showRating {

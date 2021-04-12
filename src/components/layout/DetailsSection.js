@@ -18,11 +18,12 @@ import {
 } from "@material-ui/icons";
 import Rating from "@material-ui/lab/Rating";
 
-const DetailsSection = ({ tvShow }) => {
+const DetailsSection = (tvShow) => {
   const {
     image_path,
     image_thumbnail_path,
     name,
+    network,
     youtube_link,
     rating_count,
     rating,
@@ -53,7 +54,8 @@ const DetailsSection = ({ tvShow }) => {
         <div className="secondChild">
           <div className="showTitle">
             <h1>
-              {name}
+              {name} &bull;&nbsp;
+              <span>{network}</span>
               {youtube_link && (
                 <a
                   href={`https://www.youtube.com/watch?v=${youtube_link}`}
@@ -78,7 +80,7 @@ const DetailsSection = ({ tvShow }) => {
           <div>
             <p>
               <PlayCircleFilledOutlined style={{ color: "#17161c" }} />
-              &nbsp;lançamento:&nbsp;{`${moment(start_date).format("L")}`}{" "}
+              &nbsp;lançamento:&nbsp;{`${moment(start_date).format("L")}`}&nbsp;
               &bull; {`${moment(start_date).fromNow(true)} atrás`}
             </p>
             <p>

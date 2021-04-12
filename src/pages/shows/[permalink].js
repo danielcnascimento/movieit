@@ -10,7 +10,11 @@ function Shows({ tvShow }) {
   const { isFallback } = useRouter();
 
   if (isFallback) {
-    return <p>Loading...</p>;
+    return (
+      <p style={{ color: "#fff" }}>
+        Estamos retornando todos os detalhes para você 😃...
+      </p>
+    );
   }
 
   return (
@@ -18,18 +22,18 @@ function Shows({ tvShow }) {
       <Header />
       <Container>
         <section>
-          <DetailsSection tvShow={tvShow} />
+          <DetailsSection {...tvShow} />
         </section>
 
         <section>
-          <SeasonsSection tvShow={tvShow} />
+          <SeasonsSection {...tvShow} />
         </section>
       </Container>
     </>
   );
 }
 
-//most popular shows generation.
+//most popular shows generation - fallback : true
 export const getStaticPaths = async () => {
   const res = await fetch("https://www.episodate.com/api/most-popular");
   const mostPops = await res.json();
