@@ -1,13 +1,17 @@
+import Link from "next/link";
+
 import { Heading } from "../../styles/components/layout/stylesHeader";
 
 function Header() {
   return (
     <Heading id="movieitMainHeader">
-      <div>
-        <strong>Movie</strong>
-        <span>It</span>
-        <img src="/icons/logo.svg" />
-      </div>
+      <Link href="/">
+        <div>
+          <strong>Movie</strong>
+          <span>It</span>
+          <img src="/icons/logo.svg" />
+        </div>
+      </Link>
     </Heading>
   );
 }

@@ -53,6 +53,10 @@ button {
   font: 400 1rem "Inter", sans-serif; /* weight, size, font-family*/
 }
 
+input::placeholder {
+  color: var(--text)
+}
+
 button {
   cursor: pointer;
 }

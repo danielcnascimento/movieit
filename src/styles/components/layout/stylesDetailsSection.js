@@ -10,6 +10,10 @@ export const DetailContainer = styled.div`
   background: var(--dark-shade-2);
   border: solid var(--gray-line);
   border-width: 0 1px 1px 1px;
+
+  @media (max-width: 1000px) {
+    background: var(--dark-shade-0);
+  }
 `;
 
 export const Header = styled.header`
@@ -33,14 +37,22 @@ export const Header = styled.header`
 
     filter: brightness(0.5);
   }
+
+  @media (max-width: 430px) {
+    img {
+      filter: initial;
+    }
+  }
 `;
 
 export const Body = styled.body`
   width: 100%;
-  height: 17rem;
+  height: auto;
 
   display: flex;
+
   justify-content: flex-start;
+  align-items: stretch;
 
   background: var(--dark-shade-2);
 
@@ -51,15 +63,16 @@ export const Body = styled.body`
 
   .firstChild {
     position: relative;
-    display: block;
 
     .imgHolder {
       position: relative;
-      transform: translateY(-30%);
+      margin: 0 auto;
 
       img {
         width: 15.5rem;
-        height: 21rem;
+        height: auto;
+
+        margin-top: -50%;
 
         position: relative;
 
@@ -121,6 +134,67 @@ export const Body = styled.body`
       font-weight: 300;
     }
   }
+  //Small sizes
+  @media (max-width: 1000px) {
+    padding: initial;
+    margin: initial;
+
+    flex-direction: column;
+    justify-content: center;
+
+    background: var(--dark-shade-0);
+
+    .firstChild {
+      .imgHolder {
+        margin-top: 20%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: auto;
+          height: auto;
+
+          object-fit: cover;
+          object-position: 50% 20%;
+
+          border-radius: 50px 0 50px 0;
+
+          border: 5px solid var(--dark-shade-0);
+        }
+      }
+    }
+
+    .secondChild {
+      line-height: 1rem;
+    }
+
+    div p {
+      display: flex;
+      align-items: left;
+      font-weight: 300;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .firstChild {
+      .imgHolder {
+        img {
+          width: 11rem;
+          height: 11rem;
+
+          border-radius: 100%;
+        }
+      }
+    }
+
+    .secondChild {
+      div p {
+        line-height: 1.5rem;
+      }
+    }
+  }
 `;
 
 export const Footer = styled.footer`
@@ -134,4 +208,9 @@ export const Footer = styled.footer`
   color: var(--text);
   text-align: justify;
   line-height: 1.5rem;
+
+  @media (max-width: 1000px) {
+    border: none;
+    border-width: none;
+  }
 `;

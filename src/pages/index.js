@@ -2,6 +2,9 @@ import Head from "next/head";
 
 import { Container } from "../styles/pages/stylesHome";
 
+import { ThemeProvider } from "@material-ui/styles";
+import { theme } from "../styles/theme";
+
 import SearchBox from "../components/SearchBox";
 import Paginations from "../components/Paginations";
 import Releases from "../components/Releases";
@@ -12,19 +15,21 @@ export default function Home(props) {
   return (
     <>
       <Head>
-        <title>MovieIt | Filmes e Series mais populares!</title>
+        <title>MovieIt | Filmes e Series mais Populares Online!</title>
         <link rel="shortcut icon" href="movieit-icon.png" type="image/png" />
       </Head>
       <MoviesDataProvider releases={props}>
-        <SearchBox />
-        <Container>
-          <section>
-            <Releases />
-          </section>
-          <div>
-            <Paginations />
-          </div>
-        </Container>
+        <ThemeProvider theme={theme}>
+          <SearchBox />
+          <Container>
+            <section>
+              <Releases />
+            </section>
+            <div>
+              <Paginations />
+            </div>
+          </Container>
+        </ThemeProvider>
       </MoviesDataProvider>
     </>
   );

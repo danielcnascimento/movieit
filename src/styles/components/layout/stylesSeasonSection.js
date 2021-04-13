@@ -5,17 +5,18 @@ export const Container = styled.div`
   height: auto;
 
   margin-top: 1rem;
-  margin-bottom: 1rem;
+
   border: solid var(--gray-line);
   border-width: 0 1px 1px 1px;
 
-  background-color: var(--dark-shade-2);
+  background: var(--dark-shade-2);
 
   display: flex;
   justify-content: center;
   align-items: center;
-
   flex-direction: column;
+
+  text-align: center;
 
   strong {
     color: var(--text);
@@ -79,6 +80,14 @@ export const Titles = styled.div`
 
     margin: 0;
     padding: 0;
+  }
+
+  @media (max-width: 1000px) {
+    width: 25%;
+  }
+
+  @media (max-width: 370px) {
+    width: 50%;
   }
 `;
 

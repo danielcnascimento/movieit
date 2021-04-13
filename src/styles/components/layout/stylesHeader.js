@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Heading = styled.header`
   display: flex;
   justify-content: center;
+  align-items: center;
 
   position: relative;
 
@@ -17,10 +18,12 @@ export const Heading = styled.header`
 
   div {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
     text-align: center;
+
+    cursor: pointer;
   }
 
   div span {
