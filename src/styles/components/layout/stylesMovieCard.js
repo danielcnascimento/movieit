@@ -53,6 +53,8 @@ export const SectionContainer = styled.section`
     }
 
     .postFooter {
+      width: 100%;
+
       position: absolute;
       bottom: 0;
       left: 10px;
@@ -67,6 +69,10 @@ export const SectionContainer = styled.section`
 
       flex-direction: column;
 
+      svg {
+        width: 1.5rem;
+      }
+
       p {
         display: flex;
         align-items: center;
@@ -75,6 +81,15 @@ export const SectionContainer = styled.section`
         margin-top: 0.5rem;
         line-height: 2rem;
       }
+    }
+  }
+
+  @media (max-width: 1000px) {
+    img {
+      border-radius: 10px;
+
+      border: 2px solid var(--dark-shade-1);
+      box-shadow: var(--box-shadow);
     }
   }
 `;

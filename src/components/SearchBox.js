@@ -27,7 +27,7 @@ function SearchBox() {
           mais famosas TVs de entreterimento
         </p>
         <SearchBoxContainer
-          style={isSearching ? { top: "8rem" } : { top: "-8rem" }}
+          style={isSearching ? { top: "4.7rem" } : { top: "-8rem" }}
         >
           <SearchIcon />
 

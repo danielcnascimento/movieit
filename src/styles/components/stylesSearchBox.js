@@ -15,6 +15,11 @@ export const Container = styled.div`
     right: 1rem;
 
     z-index: 5;
+
+    svg {
+      width: 20px;
+      height: auto;
+    }
   }
 
   @media (max-width: 320px) {
@@ -41,6 +46,9 @@ export const SearchBoxContainer = styled.div`
   transition: all 0.5s ease;
 
   svg {
+    width: 2rem;
+    height: auto;
+
     color: var(--white);
     font-size: 2.5rem;
   }

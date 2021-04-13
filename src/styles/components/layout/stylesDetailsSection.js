@@ -114,6 +114,8 @@ export const Body = styled.body`
     }
 
     .showRating {
+      width: auto;
+
       display: flex;
       align-items: center;
       justify-content: center;
@@ -126,6 +128,10 @@ export const Body = styled.body`
 
       font-size: 1.2rem;
       text-align: center;
+
+      svg {
+        width: inherit;
+      }
     }
 
     div p {
@@ -177,6 +183,7 @@ export const Body = styled.body`
     }
   }
 
+  //Extra Small Devices
   @media (max-width: 430px) {
     .firstChild {
       .imgHolder {
@@ -190,7 +197,7 @@ export const Body = styled.body`
     }
 
     .secondChild {
-      div p {
+      .showTitle {
         line-height: 1.5rem;
       }
     }

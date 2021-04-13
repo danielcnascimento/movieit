@@ -12,21 +12,21 @@ export const ReleaseContainer = styled.div`
     gap: 1rem;
   }
 
-  // Small laptops
+  // Laptops
   @media (max-width: 1080px) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
 
-  // Ipad
+  // Small generic device
   @media (max-width: 780px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
 
-  // Moto G4
+  // Extra small devices
   @media (max-width: 520px) {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -38,5 +38,6 @@ export const ReleaseTitle = styled.p`
   font-size: 1.25rem;
   color: var(--white);
   border-left: 5px solid var(--red);
+
   padding-left: 0.5rem;
 `;

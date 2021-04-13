@@ -93,10 +93,11 @@ export const Titles = styled.div`
 
 export const EpisodesContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-
   flex-direction: row;
+
+  text-align: left;
 
   padding: 1rem 5rem;
 
