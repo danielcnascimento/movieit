@@ -1,13 +1,13 @@
 import { createContext, useState } from "react";
 import { loadSearch } from "../services/api";
 
-export const HomeContext = createContext({});
+export const MovieDataContext = createContext({});
 
 export const MoviesDataProvider = ({ children, releases }) => {
   const { tv_shows, page, pages } = releases;
 
   const initialMoviesData = {
-    totalMoviesResults: null,
+    totalMoviesResults: 0,
     currentPage: page,
     totalPages: pages,
     shows: tv_shows,
@@ -67,7 +67,7 @@ export const MoviesDataProvider = ({ children, releases }) => {
   };
 
   return (
-    <HomeContext.Provider
+    <MovieDataContext.Provider
       value={{
         moviesData,
         isSearching,
@@ -77,6 +77,6 @@ export const MoviesDataProvider = ({ children, releases }) => {
       }}
     >
       {children}
-    </HomeContext.Provider>
+    </MovieDataContext.Provider>
   );
 };

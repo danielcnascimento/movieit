@@ -13,10 +13,13 @@ body {
   --white: #ffffff;
   --red:#d13330;
   --text: #fafafa;
+  --gray-line: #404040;
   --dark-line: #292B28;
   --background: #212121;
   --dark-shade-0: #0e0e0e;
   --dark-shade-1: #17161c;
+  --dark-shade-2: #323231;
+  --box-shadow: box-shadow: 0px 3px 10px rgb(12 13 13 / 44%);
 }
 
 a {
@@ -49,6 +52,10 @@ input,
 textarea,
 button {
   font: 400 1rem "Inter", sans-serif; /* weight, size, font-family*/
+}
+
+input::placeholder {
+  color: var(--text)
 }
 
 button {

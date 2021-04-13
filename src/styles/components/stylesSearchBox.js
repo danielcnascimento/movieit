@@ -6,19 +6,85 @@ export const Container = styled.div`
   text-align: center;
 
   p {
-    color: var(--text);
+    color: var(--white);
+  }
+
+  .searchFAB {
+    position: fixed;
+    bottom: 2rem;
+    right: 1rem;
+
+    z-index: 5;
+
+    svg {
+      width: 20px;
+      height: auto;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .searchFAB {
+      bottom: 5rem;
+    }
+  }
+`;
+
+export const SearchBoxContainer = styled.div`
+  position: absolute;
+  z-index: 5;
+
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 54, 56, 0.65);
+  box-shadow: 0px 3px 10px rgb(12 13 13 / 44%);
+
+  transition: all 0.5s ease;
+
+  svg {
+    width: 2rem;
+    height: auto;
+
+    color: var(--white);
+    font-size: 2.5rem;
   }
 
   input {
-    margin-top: 1rem;
-    padding: 1rem 7.5rem;
+    width: 35%;
 
-    text-align: center;
+    position: relative;
+    z-index: 5;
 
-    background: var(--text);
+    padding: 2.5rem 0.1rem;
+
+    font-size: 1.2rem;
+    text-align: left;
+    color: var(--white);
+
+    background: transparent;
     border: none;
-    border-radius: 60px;
 
     outline: none;
+  }
+  @media (max-width: 520px) {
+    align-items: center;
+    justify-content: flex-start;
+
+    input {
+      width: 60%;
+
+      padding: 2rem 0.2rem;
+
+      text-align: left;
+
+      background: transparent;
+      border: none;
+
+      outline: none;
+    }
   }
 `;

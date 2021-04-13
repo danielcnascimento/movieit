@@ -1,88 +1,95 @@
 import styled from "styled-components";
 
-export const CardContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const SectionContainer = styled.section`
+  > div {
+    position: relative;
+    display: block;
 
-  padding: 1.8rem 0;
-  flex-direction: column;
-
-  footer {
-    width: 100%;
-
-    padding-top: 1.5rem;
-    line-height: 1rem;
-
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  footer strong {
-    font-size: 1rem;
-    font-weight: 400;
     color: var(--text);
   }
+  .shadowOverlay:hover {
+    position: relative;
 
-  footer span {
-    font-size: 1rem;
-    color: var(--text);
-    text-align: center;
-    font-weight: bold;
+    cursor: pointer;
+    .descriptionPost {
+      display: initial;
 
-    background: var(--dark-shade-1);
+      transition: 300ms;
+    }
 
-    padding: 0.5rem 1rem;
-    margin-top: 1rem;
+    img {
+      filter: brightness(0.6);
 
-    border-radius: 20px;
-    border: 1px solid;
+      border-radius: 5px;
+      border: 1px solid var(--red);
+
+      transition: 230ms;
+    }
   }
 
-  .running {
-    border-color: var(--red);
+  .descriptionPost {
+    display: none;
 
-    filter: brightness(0.9);
-    color: var(--red);
+    .postHeader {
+      position: absolute;
+      top: 5%;
+      left: 10px;
+
+      z-index: 3;
+
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      flex-direction: column;
+
+      span {
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+
+        border: 1px solid var(--red);
+        background: var(--dark-shade-1);
+      }
+    }
+
+    .postFooter {
+      width: 100%;
+
+      position: absolute;
+      bottom: 0;
+      left: 10px;
+
+      padding-bottom: 1rem;
+
+      z-index: 3;
+
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      flex-direction: column;
+
+      svg {
+        width: 1.5rem;
+      }
+
+      p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-top: 0.5rem;
+        line-height: 2rem;
+      }
+    }
   }
 
-  .ended {
-    border: 1px solid;
-    border-color: var(--dark-shade-0);
-  }
-`;
+  @media (max-width: 1000px) {
+    img {
+      border-radius: 10px;
 
-export const CardHeader = styled.div`
-  width: 11.25rem;
-  height: 17rem;
-
-  background: var(--dark-shade-1);
-
-  display: flex;
-  align-items: center;
-
-  border-radius: 10px;
-
-  cursor: pointer;
-
-  img {
-    width: 100%;
-    height: 100%;
-
-    background-size: cover;
-
-    border-radius: 10px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: filter 0.3s ease;
-  }
-
-  img:hover {
-    filter: brightness(125%);
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.2);
+      border: 2px solid var(--dark-shade-1);
+      box-shadow: var(--box-shadow);
+    }
   }
 `;

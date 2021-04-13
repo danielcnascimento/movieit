@@ -8,13 +8,12 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  > section {
+  section {
     display: flex;
     flex-direction: column;
-    padding: 1.6rem 0;
-    margin: 1.6rem 0;
+  }
 
-    border: solid var(--dark-line);
-    border-width: 1px 0;
+  @media (max-width: 1000px) {
+    width: 100vw;
   }
 `;

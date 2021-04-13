@@ -1,32 +1,44 @@
 import { useContext } from "react";
 
+import Link from "next/link";
+
 import MovieCard from "../components/layout/MovieCard";
+import Loading from "../components/layout/Loading";
 
 import {
   ReleaseContainer,
   ReleaseTitle,
 } from "../styles/components/stylesReleases";
 
-import { HomeContext } from "../context/MoviesDataContext";
+import { MovieDataContext } from "../context/MoviesDataContext";
 
 function Releases() {
-  const { moviesData, isSearching } = useContext(HomeContext);
+  const { moviesData, isSearching, isLoading } = useContext(MovieDataContext);
 
   return (
     <>
       <ReleaseTitle>
         {!isSearching
-          ? "Lançamentos"
+          ? "Mais Populares"
           : moviesData.totalMoviesResults + " resultado(s) encontrados!"}
       </ReleaseTitle>
-      <ReleaseContainer>
-        {moviesData.shows &&
-          moviesData.shows.map((show) => (
-            <div key={show.id}>
-              <MovieCard show={show} />
-            </div>
-          ))}
-      </ReleaseContainer>
+
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <ReleaseContainer>
+            {moviesData.shows &&
+              moviesData.shows.map((show) => (
+                <Link key={show.id} href={`/shows/${show.permalink}`}>
+                  <div>
+                    <MovieCard {...show} />
+                  </div>
+                </Link>
+              ))}
+          </ReleaseContainer>
+        </>
+      )}
     </>
   );
 }

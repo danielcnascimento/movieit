@@ -1,5 +1,6 @@
 import axios from "axios";
 
+//Auxiliar na otimização de request.
 const cancelConfig = {
   request: null,
   cancelToken: null,
