@@ -96,11 +96,12 @@ export const Body = styled.body`
 
     font-size: 1rem;
     color: var(--text);
-    line-height: 0.7rem;
+
+    line-height: 1.3rem;
 
     .showTitle {
       font-weight: 500;
-      line-height: 1rem;
+
       text-align: start;
 
       span {
@@ -173,7 +174,7 @@ export const Body = styled.body`
     }
 
     .secondChild {
-      line-height: 1rem;
+      line-height: 1.5rem;
     }
 
     div p {

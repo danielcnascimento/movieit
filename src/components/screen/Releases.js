@@ -10,12 +10,12 @@ import {
 
 import { MovieDataContext } from "../../context/MoviesDataContext";
 
-function Releases() {
+function Releases({ title }) {
   const { moviesData } = useContext(MovieDataContext);
 
   return (
     <>
-      <ReleaseTitle>Mais Populares</ReleaseTitle>
+      <ReleaseTitle>{title}</ReleaseTitle>
       <ReleaseContainer>
         {moviesData.shows &&
           moviesData.shows.map((show) => (

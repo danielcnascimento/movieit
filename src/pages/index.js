@@ -9,7 +9,7 @@ export default function Home(props) {
         <title>MovieIt | Filmes e Series mais Populares Online!</title>
         <link rel="shortcut icon" href="movieit-icon.png" type="image/png" />
       </Head>
-      <MovieMain {...props} />
+      <MovieMain {...props} title={"Mais Populares"} />
     </>
   );
 }

@@ -34,7 +34,13 @@ function SearchBox() {
 
   return (
     <>
-      {moviesSuggestions.shows.length > 0 && <SuggestionOverlay />}
+      {moviesSuggestions.shows.length > 0 && isSearching && (
+        <SuggestionOverlay
+          onClick={() => {
+            setIsSearching(false);
+          }}
+        />
+      )}
 
       <Header />
 
@@ -56,18 +62,19 @@ function SearchBox() {
         </SearchBoxContainer>
         <div className="searchFAB">
           <Scroll to={!isSearching && "movieitMainHeader"} smooth={true}>
-            <Fab
-              onClick={() => setIsSearching(!isSearching)}
-              color="secondary"
-              aria-label="Procurar no MovieIt"
-            >
+            <Fab onClick={() => setIsSearching(!isSearching)} color="secondary">
               {isSearching ? <CloseIcon /> : <SearchIcon />}
             </Fab>
           </Scroll>
         </div>
       </Container>
 
-      <SuggestionContainer>
+      <SuggestionContainer
+        onClick={() => {
+          setIsSearching(false);
+        }}
+        style={isSearching ? { top: "10rem" } : { display: "none" }}
+      >
         <section>
           {moviesSuggestions.shows.length > 0 &&
             (isLoading ? (
@@ -105,14 +112,14 @@ function SearchBox() {
                     </Link>
                   );
                 })}
-                <a href={`/search?body=${targetSearch}`}>
+                <Link href={`/search?body=${targetSearch}`}>
                   <ol>
                     <li>
-                      Click here to show {moviesSuggestions.totalMoviesResults}
-                      &nbsp;results.
+                      CLIQUE PARA VER {moviesSuggestions.totalMoviesResults}
+                      &nbsp;RESULTADOS.
                     </li>
                   </ol>
-                </a>
+                </Link>
               </ul>
             ))}
         </section>

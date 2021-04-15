@@ -16,7 +16,7 @@ function MovieMain(props) {
           <SearchBox />
           <Container>
             <section>
-              <Releases />
+              <Releases title={props.title} />
             </section>
             <div>
               <Paginations />

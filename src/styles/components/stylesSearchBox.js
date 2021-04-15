@@ -92,6 +92,8 @@ export const SearchBoxContainer = styled.div`
     align-items: center;
     justify-content: flex-start;
 
+    background: var(--red);
+
     input {
       width: 60%;
 
@@ -118,15 +120,22 @@ export const SuggestionContainer = styled.div`
   justify-content: center;
 
   position: absolute;
-  top: 10rem;
   z-index: 5;
 
+  transition: all 0.5s ease-in;
   section {
     width: 50%;
 
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  //small devices
+  @media (max-width: 1000px) {
+    section {
+      width: 100%;
+    }
   }
 
   ul {
@@ -136,6 +145,7 @@ export const SuggestionContainer = styled.div`
     flex-direction: column;
 
     margin-top: 1.5rem;
+    padding: 0;
 
     color: var(--text);
   }
@@ -155,7 +165,7 @@ export const SuggestionContainer = styled.div`
     margin: 0.5rem auto;
     padding: 0.5rem 0;
 
-    background: var(--dark-shade-1);
+    background: rgba(23, 22, 28, 0.9);
 
     border-radius: 4px;
     border: solid var(--gray-line);

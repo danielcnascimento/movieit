@@ -1,13 +1,13 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { loadSearch } from "../services/api";
 
 export const MovieDataContext = createContext({});
 
 export const MoviesDataProvider = ({ children, releases }) => {
-  const { tv_shows, page, pages } = releases;
+  const { total, tv_shows, page, pages } = releases;
 
   const [moviesData, setMoviesData] = useState({
-    totalMoviesResults: 0,
+    totalMoviesResults: total,
     currentPage: page,
     totalPages: pages,
     shows: tv_shows,
@@ -22,6 +22,15 @@ export const MoviesDataProvider = ({ children, releases }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [targetSearch, setTargetSearch] = useState("");
   let urlType;
+
+  useEffect(() => {
+    setMoviesData({
+      totalMoviesResults: total,
+      currentPage: page,
+      totalPages: pages,
+      shows: tv_shows,
+    });
+  }, [releases]);
 
   // pagination
   const handleChangePage = async (event, thisPage) => {
