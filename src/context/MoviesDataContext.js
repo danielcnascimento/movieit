@@ -6,13 +6,18 @@ export const MovieDataContext = createContext({});
 export const MoviesDataProvider = ({ children, releases }) => {
   const { tv_shows, page, pages } = releases;
 
-  const initialMoviesData = {
+  const [moviesData, setMoviesData] = useState({
     totalMoviesResults: 0,
     currentPage: page,
     totalPages: pages,
     shows: tv_shows,
-  };
-  const [moviesData, setMoviesData] = useState(initialMoviesData);
+  });
+  const [moviesSuggestions, setMoviesSuggestions] = useState({
+    totalMoviesResults: 0,
+    currentPage: 0,
+    totalPages: 0,
+    shows: [],
+  });
   const [isSearching, setIsSearching] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [targetSearch, setTargetSearch] = useState("");
@@ -43,9 +48,9 @@ export const MoviesDataProvider = ({ children, releases }) => {
 
   // search
   const searchHandler = async (text) => {
-    if (text.length < 2) {
+    if (text.length < 3) {
       setIsSearching(false);
-      setMoviesData(initialMoviesData);
+      setMoviesSuggestions({ shows: [] });
 
       return;
     } else {
@@ -54,13 +59,15 @@ export const MoviesDataProvider = ({ children, releases }) => {
       setTargetSearch(text);
 
       const result = await loadSearch(text);
+
       if (result.data) {
-        setMoviesData({
+        setMoviesSuggestions({
           totalMoviesResults: result.data.total,
           currentPage: result.data.page,
           totalPages: result.data.pages,
           shows: result.data.tv_shows,
         });
+
         setIsLoading(false);
       }
     }
@@ -70,6 +77,8 @@ export const MoviesDataProvider = ({ children, releases }) => {
     <MovieDataContext.Provider
       value={{
         moviesData,
+        moviesSuggestions,
+        targetSearch,
         isSearching,
         isLoading,
         handleChangePage,

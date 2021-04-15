@@ -1,5 +1,23 @@
 import styled from "styled-components";
 
+//shadow overlay.
+
+export const SuggestionOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  z-index: 4;
+
+  background: rgba(14, 14, 14, 0.5);
+
+  transition: all 0.2s ease-in;
+`;
+
+//search container.
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,7 +32,7 @@ export const Container = styled.div`
     bottom: 2rem;
     right: 1rem;
 
-    z-index: 5;
+    z-index: 6;
 
     svg {
       width: 20px;
@@ -86,5 +104,115 @@ export const SearchBoxContainer = styled.div`
 
       outline: none;
     }
+  }
+`;
+
+//suggestion container.
+
+export const SuggestionContainer = styled.div`
+  width: 100%;
+  padding: 0 1.25rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 10rem;
+  z-index: 5;
+
+  section {
+    width: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  ul {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 1.5rem;
+
+    color: var(--text);
+  }
+
+  ul li {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    flex: 1;
+
+    text-align: center;
+
+    margin: 0.5rem auto;
+    padding: 0.5rem 0;
+
+    background: var(--dark-shade-1);
+
+    border-radius: 4px;
+    border: solid var(--gray-line);
+    border-width: 2px 0;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease-in;
+
+    div {
+      display: flex;
+      padding: 0.4rem 0.8rem;
+
+      text-align: center;
+      img {
+        object-fit: cover;
+        object-position: 50% 50%;
+
+        border-radius: 5px;
+      }
+
+      span {
+        width: 100%;
+        text-transform: uppercase;
+      }
+    }
+
+    div:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+
+      text-align: left;
+
+      flex: 1;
+
+      padding: 0 1rem;
+      margin: 0;
+
+      strong {
+        font-weight: 500;
+      }
+    }
+  }
+
+  ul li:hover {
+    filter: brightness(110%);
+  }
+
+  ul ol {
+    width: 100%;
+
+    padding: 0;
+
+    background: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
