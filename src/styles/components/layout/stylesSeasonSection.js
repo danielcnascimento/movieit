@@ -46,7 +46,7 @@ export const SeasonHeader = styled.div`
 
   flex-direction: column;
 
-  cursor: row-resize;
+  cursor: pointer;
 `;
 
 export const Titles = styled.div`

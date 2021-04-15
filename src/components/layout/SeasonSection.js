@@ -73,7 +73,7 @@ const SeasonRow = ({ season, tvShow }) => {
               />
               <div>
                 <h3>{episode.name}</h3>
-                <p>{moment(episode.air_date).format("ll")}</p>
+                <p>{moment(episode.air_date).format("LL")}</p>
               </div>
             </EpisodesContainer>
           </Collapse>

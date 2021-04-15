@@ -1,22 +1,36 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { loadSearch } from "../services/api";
 
 export const MovieDataContext = createContext({});
 
 export const MoviesDataProvider = ({ children, releases }) => {
-  const { tv_shows, page, pages } = releases;
+  const { total, tv_shows, page, pages } = releases;
 
-  const initialMoviesData = {
-    totalMoviesResults: 0,
+  const [moviesData, setMoviesData] = useState({
+    totalMoviesResults: total,
     currentPage: page,
     totalPages: pages,
     shows: tv_shows,
-  };
-  const [moviesData, setMoviesData] = useState(initialMoviesData);
+  });
+  const [moviesSuggestions, setMoviesSuggestions] = useState({
+    totalMoviesResults: 0,
+    currentPage: 0,
+    totalPages: 0,
+    shows: [],
+  });
   const [isSearching, setIsSearching] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [targetSearch, setTargetSearch] = useState("");
   let urlType;
+
+  useEffect(() => {
+    setMoviesData({
+      totalMoviesResults: total,
+      currentPage: page,
+      totalPages: pages,
+      shows: tv_shows,
+    });
+  }, [releases]);
 
   // pagination
   const handleChangePage = async (event, thisPage) => {
@@ -43,9 +57,9 @@ export const MoviesDataProvider = ({ children, releases }) => {
 
   // search
   const searchHandler = async (text) => {
-    if (text.length < 2) {
+    if (text.length < 3) {
       setIsSearching(false);
-      setMoviesData(initialMoviesData);
+      setMoviesSuggestions({ shows: [] });
 
       return;
     } else {
@@ -54,13 +68,15 @@ export const MoviesDataProvider = ({ children, releases }) => {
       setTargetSearch(text);
 
       const result = await loadSearch(text);
+
       if (result.data) {
-        setMoviesData({
+        setMoviesSuggestions({
           totalMoviesResults: result.data.total,
           currentPage: result.data.page,
           totalPages: result.data.pages,
           shows: result.data.tv_shows,
         });
+
         setIsLoading(false);
       }
     }
@@ -70,6 +86,8 @@ export const MoviesDataProvider = ({ children, releases }) => {
     <MovieDataContext.Provider
       value={{
         moviesData,
+        moviesSuggestions,
+        targetSearch,
         isSearching,
         isLoading,
         handleChangePage,
