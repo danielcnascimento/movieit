@@ -52,7 +52,7 @@ function SearchBox() {
         <SearchBoxContainer
           style={isSearching ? { top: "4.7rem" } : { top: "-8rem" }}
         >
-          <SearchIcon />
+          <SearchIcon width={25} height={25} />
 
           <input
             type="text"
@@ -63,7 +63,11 @@ function SearchBox() {
         <div className="searchFAB">
           <Scroll to={!isSearching && "movieitMainHeader"} smooth={true}>
             <Fab onClick={() => setIsSearching(!isSearching)} color="secondary">
-              {isSearching ? <CloseIcon /> : <SearchIcon />}
+              {isSearching ? (
+                <CloseIcon width={25} height={25} />
+              ) : (
+                <SearchIcon width={25} height={25} />
+              )}
             </Fab>
           </Scroll>
         </div>

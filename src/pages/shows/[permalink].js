@@ -55,7 +55,7 @@ export const getStaticProps = async (ctx) => {
   const { permalink } = ctx.params;
 
   const res = await fetch(
-    `http://www.episodate.com/api/show-details?q=${permalink}`
+    `https://www.episodate.com/api/show-details?q=${permalink}`
   );
   const show = await res.json();
   const { tvShow } = show;

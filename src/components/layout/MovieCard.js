@@ -1,4 +1,5 @@
 import { SectionContainer } from "../../styles/components/layout/stylesMovieCard";
+import Image from "next/image";
 
 import {
   PlayCircleFilledOutlined,
@@ -25,18 +26,20 @@ const MovieCard = ({
             </div>
             <div className="postFooter">
               <p>
-                <PlayCircleFilledOutlined />
+                <PlayCircleFilledOutlined width={25} height={25} />
                 &nbsp;
                 {start_date ? moment(start_date).format("L") : "Indefinido!"}
               </p>
               <p>
-                <PauseCircleFilledOutlined />
+                <PauseCircleFilledOutlined width={25} height={25} />
                 &nbsp;
                 {end_date ? moment(end_date).format("L") : "-/-/-"}
               </p>
             </div>
           </div>
-          <img
+          <Image
+            loading="lazy"
+            layout="responsive"
             src={image_thumbnail_path ?? "/icons/movie.svg"}
             alt={`${name}`}
             width={223}

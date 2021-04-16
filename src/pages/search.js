@@ -19,11 +19,11 @@ function Index() {
 
     body ? (urlType = `search?q=${body}`) : (urlType = `search`);
 
-    const res = await fetch(`http://www.episodate.com/api/${urlType}`);
+    const res = await fetch(`https://www.episodate.com/api/${urlType}`);
     const api_releases = await res.json();
 
     const { total, page, pages, tv_shows } = api_releases;
-    setMoviesResults({ total, page, pages, tv_shows });
+    setMoviesResults({ body, total, page, pages, tv_shows });
   };
 
   let title = !body ? "A - Z" : body;

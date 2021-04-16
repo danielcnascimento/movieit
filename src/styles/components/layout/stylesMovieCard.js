@@ -83,10 +83,23 @@ export const SectionContainer = styled.section`
       }
     }
   }
-
   @media (max-width: 1000px) {
+    .descriptionPost {
+      .postFooter {
+        color: var(--red);
+
+        font-weight: 600;
+        text-shadow: 1px 1px var(--dark-shade-0);
+
+        p {
+          margin-top: initial;
+          line-height: initial;
+        }
+      }
+    }
+
     img {
-      border-radius: 10px;
+      border-radius: 5px;
 
       border: 2px solid var(--dark-shade-1);
       box-shadow: var(--box-shadow);
