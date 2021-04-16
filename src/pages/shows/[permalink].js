@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 import { Container } from "../../styles/pages/stylesShows";
 
-import Header from "../../components/layout/Header";
+import MovieMainHeader from "../../components/layout/MovieMainHeader";
 import DetailsSection from "../../components/layout/DetailsSection";
 import SeasonsSection from "../../components/layout/SeasonSection";
 import Loading from "../../components/layout/Loading";
@@ -21,7 +21,7 @@ function Shows({ tvShow }) {
         <title>Ver {tvShow.name} - Todos os Episódios - MovieIt!</title>
         <link rel="shortcut icon" href="movieit-icon.png" type="image/png" />
       </Head>
-      <Header />
+      <MovieMainHeader />
       <Container>
         <section>
           <DetailsSection {...tvShow} />
@@ -35,7 +35,7 @@ function Shows({ tvShow }) {
   );
 }
 
-//most popular shows generation - fallback : true
+//most popular shows generation.
 export const getStaticPaths = async () => {
   const res = await fetch("https://www.episodate.com/api/most-popular");
   const mostPops = await res.json();

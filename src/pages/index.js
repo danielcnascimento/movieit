@@ -14,6 +14,7 @@ export default function Home(props) {
   );
 }
 
+//Most popular shows - 20 results.
 export const getStaticProps = async () => {
   const res = await fetch("https://www.episodate.com/api/most-popular");
   const api_releases = await res.json();
@@ -25,6 +26,6 @@ export const getStaticProps = async () => {
       pages,
       tv_shows,
     },
-    revalidate: 10,
+    revalidate: 60,
   };
 };

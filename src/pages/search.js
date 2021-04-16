@@ -26,15 +26,15 @@ function Index() {
     setMoviesResults({ body, total, page, pages, tv_shows });
   };
 
-  let title = !body ? "A - Z" : body;
+  let title = !body ? "de A - Z. " : body;
 
   return (
     <>
       <Head>
-        <title>MovieIt</title>
+        <title>Você pesquisou {title} - MovieIt!</title>
         <link rel="shortcut icon" href="movieit-icon.png" type="image/png" />
       </Head>
-      <MovieMain {...moviesResults} title={`Você procurou por : ${title}`} />
+      <MovieMain {...moviesResults} title={`Você pesquisou: ${title}`} />
     </>
   );
 }

@@ -16,7 +16,7 @@ export const DetailContainer = styled.div`
   }
 `;
 
-export const Header = styled.header`
+export const DetailHeader = styled.header`
   position: relative;
 
   width: 100%;
@@ -45,7 +45,7 @@ export const Header = styled.header`
   }
 `;
 
-export const Body = styled.body`
+export const DetailMain = styled.main`
   width: 100%;
   height: auto;
 
@@ -205,7 +205,7 @@ export const Body = styled.body`
   }
 `;
 
-export const Footer = styled.footer`
+export const DetailFooter = styled.footer`
   padding: 1rem 1.5rem;
 
   border: solid var(--gray-line);

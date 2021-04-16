@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { Link as Scroll } from "react-scroll";
 import moment from "moment";
 
-import Header from "../../components/layout/Header";
+import MovieMainHeader from "../../components/layout/MovieMainHeader";
 
 import { MovieDataContext } from "../../context/MoviesDataContext";
 
@@ -42,7 +42,7 @@ function SearchBox() {
         />
       )}
 
-      <Header />
+      <MovieMainHeader />
 
       <Container>
         <p>

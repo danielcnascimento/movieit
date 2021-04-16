@@ -5,9 +5,9 @@ import moment from "moment";
 
 import {
   DetailContainer,
-  Header,
-  Body,
-  Footer,
+  DetailHeader,
+  DetailMain,
+  DetailFooter,
 } from "../../styles/components/layout/stylesDetailsSection";
 
 import {
@@ -40,7 +40,7 @@ const DetailsSection = (tvShow) => {
 
   return (
     <DetailContainer>
-      <Header>
+      <DetailHeader>
         <Image
           loading="eager"
           layout="intrinsic"
@@ -48,8 +48,8 @@ const DetailsSection = (tvShow) => {
           width={1300}
           height={350}
         />
-      </Header>
-      <Body>
+      </DetailHeader>
+      <DetailMain>
         <div className="firstChild">
           <div className="imgHolder">
             <img src={image_thumbnail_path} />
@@ -83,29 +83,41 @@ const DetailsSection = (tvShow) => {
           </div>
           <div>
             <p>
-              <PlayCircleFilledOutlined style={{ color: "#17161c" }} />
+              <PlayCircleFilledOutlined
+                style={{ color: "#17161c" }}
+                width={25}
+                height={25}
+              />
               &nbsp;lançamento:&nbsp;{`${moment(start_date).format("L")}`}&nbsp;
               &bull; {`${moment(start_date).fromNow(true)} atrás`}
             </p>
             <p>
-              <PauseCircleFilledOutlined style={{ color: "#17161c" }} />
+              <PauseCircleFilledOutlined
+                style={{ color: "#17161c" }}
+                width={25}
+                height={25}
+              />
               &nbsp; previsão: {end_date ?? "Indefinido"}
             </p>
             <p>
-              <LiveTvOutlined style={{ color: "#17161c" }} />
+              <LiveTvOutlined
+                style={{ color: "#17161c" }}
+                width={25}
+                height={25}
+              />
               &nbsp; status:{" "}
               {status === "Running" ? "Em lançamento" : "Finalizado"}
             </p>
             <p>
-              <Public style={{ color: "#17161c" }} />
+              <Public style={{ color: "#17161c" }} width={25} height={25} />
               &nbsp; país de origem: {country}
             </p>
           </div>
         </div>
-      </Body>
-      <Footer>
+      </DetailMain>
+      <DetailFooter>
         <article>{description}</article>
-      </Footer>
+      </DetailFooter>
     </DetailContainer>
   );
 };

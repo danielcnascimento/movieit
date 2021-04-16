@@ -1,12 +1,10 @@
 import { createContext, useState, useEffect } from "react";
 import { loadSearch } from "../services/api";
-import { useRouter } from "next/router";
 
 export const MovieDataContext = createContext({});
 
 export const MoviesDataProvider = ({ children, releases }) => {
   const { total, tv_shows, page, pages } = releases;
-  const { router } = useRouter();
 
   const [moviesData, setMoviesData] = useState({
     totalMoviesResults: total,
@@ -37,12 +35,14 @@ export const MoviesDataProvider = ({ children, releases }) => {
     });
   }, [releases]);
 
-  // pagination
+  // Pagination handler.
   const handleChangePage = async (event, thisPage) => {
+    //When on Search (page), changes paginations type.
     isSearching
       ? (urlType = `search?q=${releases.body}&`)
       : (urlType = `most-popular?`);
 
+    //Returns new results when selecting pages.
     setIsLoading(true);
 
     const res = await fetch(
@@ -60,7 +60,7 @@ export const MoviesDataProvider = ({ children, releases }) => {
     });
   };
 
-  // search
+  // Search Hander.
   const searchHandler = async (text) => {
     if (text.length < 3) {
       setIsSearching(false);
