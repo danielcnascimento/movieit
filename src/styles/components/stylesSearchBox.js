@@ -63,48 +63,63 @@ export const SearchBoxContainer = styled.div`
 
   transition: all 0.5s ease;
 
-  svg {
-    width: 2rem;
-    height: auto;
+  form {
+    width: 50%;
 
-    color: var(--white);
-    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      padding: 0;
+      margin: 0 0.3rem;
+
+      background: transparent;
+
+      font-size: 0;
+
+      border: none;
+    }
+
+    svg {
+      color: var(--white);
+    }
+
+    input {
+      width: 60%;
+
+      padding: 2.5rem 0.1rem;
+
+      position: relative;
+      z-index: 5;
+
+      font-size: 1.2rem;
+      text-align: left;
+      color: var(--white);
+
+      background: transparent;
+      border: none;
+
+      outline: none;
+    }
   }
 
-  input {
-    width: 35%;
-
-    position: relative;
-    z-index: 5;
-
-    padding: 2.5rem 0.1rem;
-
-    font-size: 1.2rem;
-    text-align: left;
-    color: var(--white);
-
-    background: transparent;
-    border: none;
-
-    outline: none;
-  }
   @media (max-width: 520px) {
     align-items: center;
     justify-content: flex-start;
 
     background: var(--red);
 
-    input {
-      width: 60%;
+    form {
+      flex: 1;
 
-      padding: 2rem 0.2rem;
+      input {
+        width: 100%;
 
-      text-align: left;
+        padding: 2rem 0.2rem;
 
-      background: transparent;
-      border: none;
-
-      outline: none;
+        text-align: left;
+      }
     }
   }
 `;

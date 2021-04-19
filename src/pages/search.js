@@ -26,7 +26,7 @@ function Index() {
     setMoviesResults({ body, total, page, pages, tv_shows });
   };
 
-  let title = !body ? "de A - Z. " : body;
+  let title = !body ? "de A - Z " : body;
 
   return (
     <>

@@ -32,6 +32,11 @@ function SearchBox() {
   } = useContext(MovieDataContext);
   const router = useRouter();
 
+  const handleSubmitSearchPage = (event) => {
+    event.preventDefault();
+    router.push(`/search?body=${targetSearch}`);
+  };
+
   return (
     <>
       {moviesSuggestions.shows.length > 0 && isSearching && (
@@ -52,13 +57,17 @@ function SearchBox() {
         <SearchBoxContainer
           style={isSearching ? { top: "4.7rem" } : { top: "-8rem" }}
         >
-          <SearchIcon width={25} height={25} />
+          <form onSubmit={handleSubmitSearchPage} autoComplete="off">
+            <button type="submit">
+              <SearchIcon width={25} height={25} />
+            </button>
 
-          <input
-            type="text"
-            onChange={(e) => searchHandler(e.target.value)}
-            placeholder="Procurar no MovieIt ..."
-          />
+            <input
+              type="text"
+              onChange={(e) => searchHandler(e.target.value)}
+              placeholder="Procurar no MovieIt ..."
+            />
+          </form>
         </SearchBoxContainer>
         <div className="searchFAB">
           <Scroll to={!isSearching && "movieitMainHeader"} smooth={true}>
