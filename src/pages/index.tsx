@@ -1,8 +1,9 @@
 import Head from "next/head";
+import { GetStaticProps } from "next";
 
 import MovieMain from "../components/MovieMain";
 
-export default function Home(props) {
+export default function Home(props: GetMoviesDataType) {
   return (
     <>
       <Head>
@@ -15,9 +16,9 @@ export default function Home(props) {
 }
 
 //Most popular shows - 20 results.
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch("https://www.episodate.com/api/most-popular");
-  const api_releases = await res.json();
+  const api_releases: GetMoviesDataType = await res.json();
   const { page, pages, tv_shows } = api_releases;
 
   return {

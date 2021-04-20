@@ -75,7 +75,7 @@ const DetailsSection = (tvShow) => {
             {rating_count > 0 ? (
               <>
                 &nbsp; <Rating name="read-only" value={ratingValue} readOnly />
-                &nbsp;{Number(rating).toFixed(1)}
+                &nbsp;{Number(rating).toFixed(1)}/10
               </>
             ) : (
               "Sem Avaliações :("

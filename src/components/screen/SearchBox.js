@@ -34,7 +34,8 @@ function SearchBox() {
 
   const handleSubmitSearchPage = (event) => {
     event.preventDefault();
-    router.push(`/search?body=${targetSearch}`);
+
+    router.push(`/search?body=${event.target[1].value}`);
   };
 
   return (
