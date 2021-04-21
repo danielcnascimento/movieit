@@ -8,7 +8,7 @@ import SearchBox from "./screen/SearchBox";
 import Releases from "./screen/Releases";
 import Paginations from "./screen/Paginations";
 
-function MovieMain(props) {
+function MovieMain(props: MovieMainProps) {
   return (
     <>
       <MoviesDataProvider releases={props}>

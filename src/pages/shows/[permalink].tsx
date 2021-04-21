@@ -1,5 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { ParsedUrlQuery } from "querystring";
 
 import { Container } from "../../styles/pages/stylesShows";
 
@@ -8,7 +10,7 @@ import DetailsSection from "../../components/layout/DetailsSection";
 import SeasonsSection from "../../components/layout/SeasonSection";
 import Loading from "../../components/layout/Loading";
 
-function Shows({ tvShow }) {
+function Shows(show: TvShowTypes) {
   const { isFallback } = useRouter();
 
   if (isFallback) {
@@ -18,27 +20,32 @@ function Shows({ tvShow }) {
   return (
     <>
       <Head>
-        <title>Ver {tvShow.name} - Todos os Episódios - MovieIt!</title>
+        <title>Ver {show.name} - Todos os Episódios - MovieIt!</title>
         <link rel="shortcut icon" href="movieit-icon.png" type="image/png" />
       </Head>
       <MovieMainHeader />
       <Container>
         <section>
-          <DetailsSection {...tvShow} />
+          <DetailsSection {...show} />
         </section>
 
         <section>
-          <SeasonsSection {...tvShow} />
+          <SeasonsSection {...show} />
         </section>
       </Container>
     </>
   );
 }
 
+//permalink placeholder.
+interface IParams extends ParsedUrlQuery {
+  permalink: string;
+}
+
 //most popular shows generation.
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch("https://www.episodate.com/api/most-popular");
-  const mostPops = await res.json();
+  const mostPops: { tv_shows: { permalink: string }[] } = await res.json();
 
   const paths = mostPops.tv_shows.map((show) => {
     return { params: { permalink: show.permalink } };
@@ -51,17 +58,17 @@ export const getStaticPaths = async () => {
 };
 
 //fetching details.
-export const getStaticProps = async (ctx) => {
-  const { permalink } = ctx.params;
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const { permalink } = ctx.params as IParams;
 
   const res = await fetch(
     `https://www.episodate.com/api/show-details?q=${permalink}`
   );
-  const show = await res.json();
-  const { tvShow } = show;
+  const { tvShow } = await res.json();
+  const show: TvShowTypes = tvShow;
 
   return {
-    props: { tvShow },
+    props: { ...show },
     revalidate: 10,
   };
 };

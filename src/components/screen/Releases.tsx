@@ -10,15 +10,19 @@ import {
 
 import { MovieDataContext } from "../../context/MoviesDataContext";
 
-function Releases({ title }) {
+interface ReleasesProps {
+  title: string;
+}
+
+function Releases({ title }: ReleasesProps) {
   const { moviesData } = useContext(MovieDataContext);
 
   return (
     <>
       <ReleaseTitle>{title}</ReleaseTitle>
       <ReleaseContainer>
-        {moviesData.shows &&
-          moviesData.shows.map((show) => (
+        {moviesData.tv_shows &&
+          moviesData.tv_shows.map((show: TvShowTypes) => (
             <Link key={show.id} href={`/shows/${show.permalink}`}>
               <div>
                 <MovieCard {...show} />

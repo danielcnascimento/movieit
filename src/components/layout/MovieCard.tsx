@@ -14,7 +14,7 @@ const MovieCard = ({
   start_date,
   end_date,
   image_thumbnail_path,
-}) => {
+}: TvShowTypes) => {
   return (
     <SectionContainer>
       <div>

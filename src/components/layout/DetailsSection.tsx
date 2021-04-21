@@ -18,23 +18,21 @@ import {
 } from "@material-ui/icons";
 import Rating from "@material-ui/lab/Rating";
 
-const DetailsSection = (tvShow) => {
-  const {
-    image_path,
-    image_thumbnail_path,
-    name,
-    network,
-    youtube_link,
-    rating_count,
-    rating,
-    start_date,
-    end_date,
-    country,
-    status,
-    description,
-  } = tvShow;
-
-  const [ratingValue, setRatingValue] = useState(Number(rating) * 0.5);
+const DetailsSection = ({
+  image_path,
+  image_thumbnail_path,
+  name,
+  network,
+  youtube_link,
+  rating_count,
+  rating,
+  start_date,
+  end_date,
+  country,
+  status,
+  description,
+}: TvShowTypes) => {
+  const [ratingValue, setRatingValue] = useState(rating * 0.5);
 
   moment.locale("pt-br");
 

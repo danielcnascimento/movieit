@@ -13,9 +13,7 @@ import Collapse from "@material-ui/core/Collapse";
 
 import moment from "moment";
 
-const SeasonSection = (tvShow) => {
-  const { episodes, name } = tvShow;
-
+const SeasonSection = ({ episodes, name }: TvShowTypes) => {
   //returns the last episode which has the last release.
   const lastEpisode = episodes[episodes.length - 1];
   //returns total seasons according to last released episode.
@@ -34,15 +32,24 @@ const SeasonSection = (tvShow) => {
       </strong>
 
       {seasons.map((season, index) => (
-        <SeasonRow key={index} season={season} tvShow={tvShow} />
+        <SeasonRow key={index} season={season} episodes={episodes} />
       ))}
     </Container>
   );
 };
 
-const SeasonRow = ({ season, tvShow }) => {
-  const { episodes } = tvShow;
+interface SeasonRowProps {
+  season: number;
+  episodes: Array<{
+    season: number;
+    episode: number;
+    name: string;
+    air_date: Date;
+  }>;
+}
 
+//component
+const SeasonRow = ({ season, episodes }: SeasonRowProps) => {
   const [isShowing, setIsShowing] = useState(false);
 
   // Total episodes for each season.

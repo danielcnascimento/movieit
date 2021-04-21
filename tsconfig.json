@@ -19,13 +19,13 @@
     "jsx": "preserve",
     "noImplicitAny": true,
     "noImplicitThis": true,
-    "strictNullChecks": true
+    "strictNullChecks": false
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "next.config.js"  ],
+, "next.config.js", "src/helper/axios.helper.js"  ],
   "exclude": [
     "node_modules"
   ]

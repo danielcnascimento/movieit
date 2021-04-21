@@ -15,7 +15,7 @@ function Paginations() {
     <Scroll to="movieitMainHeader">
       <Pages>
         <Pagination
-          count={moviesData.totalPages}
+          count={moviesData.pages}
           onChange={handleChangePage}
           color="secondary"
           disabled={isLoading}

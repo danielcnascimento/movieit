@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, FormEvent, ChangeEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -24,6 +24,7 @@ import Loading from "../layout/Loading";
 
 function SearchBox() {
   const [isSearching, setIsSearching] = useState(false);
+  const [query, setQuery] = useState("");
   const {
     searchHandler,
     moviesSuggestions,
@@ -32,15 +33,15 @@ function SearchBox() {
   } = useContext(MovieDataContext);
   const router = useRouter();
 
-  const handleSubmitSearchPage = (event) => {
+  const handleSubmitSearchPage = (event: FormEvent) => {
     event.preventDefault();
 
-    router.push(`/search?body=${event.target[1].value}`);
+    router.push(`/search?body=${query}`);
   };
 
   return (
     <>
-      {moviesSuggestions.shows.length > 0 && isSearching && (
+      {moviesSuggestions.tv_shows.length > 0 && isSearching && (
         <SuggestionOverlay
           onClick={() => {
             setIsSearching(false);
@@ -65,13 +66,15 @@ function SearchBox() {
 
             <input
               type="text"
-              onChange={(e) => searchHandler(e.target.value)}
+              onChange={(e) =>
+                searchHandler(e.target.value) && setQuery(e.target.value)
+              }
               placeholder="Procurar no MovieIt ..."
             />
           </form>
         </SearchBoxContainer>
         <div className="searchFAB">
-          <Scroll to={!isSearching && "movieitMainHeader"} smooth={true}>
+          <Scroll to={`${!isSearching && "movieitMainHeader"}`} smooth={true}>
             <Fab onClick={() => setIsSearching(!isSearching)} color="secondary">
               {isSearching ? (
                 <CloseIcon width={25} height={25} />
@@ -90,46 +93,57 @@ function SearchBox() {
         style={isSearching ? { top: "10rem" } : { display: "none" }}
       >
         <section>
-          {moviesSuggestions.shows.length > 0 &&
+          {moviesSuggestions.tv_shows.length > 0 &&
             (isLoading ? (
               <Loading />
             ) : (
               <ul>
-                {moviesSuggestions.shows.slice(0, 5).map((show) => {
-                  return (
-                    <Link key={show.id} href={`/shows/${show.permalink}`}>
-                      <li>
-                        <div>
-                          <Image
-                            loading="eager"
-                            layout="responsive"
-                            width={100}
-                            height={180}
-                            src={`${show.image_thumbnail_path}`}
-                            quality={40}
-                          />
-                        </div>
-                        <div>
-                          <strong> {show.name} </strong>
-                          <p>
-                            {show.start_date
-                              ? `Lançado ${moment(show.start_date).fromNow(
-                                  true
-                                )} atrás.`
-                              : "Indefinido!"}
-                          </p>
-                        </div>
-                        <div>
-                          <span>{show.status}</span>
-                        </div>
-                      </li>
-                    </Link>
-                  );
-                })}
+                {moviesSuggestions.tv_shows
+                  .slice(0, 5)
+                  .map(
+                    ({
+                      id,
+                      permalink,
+                      image_thumbnail_path,
+                      name,
+                      start_date,
+                      status,
+                    }: TvShowTypes) => {
+                      return (
+                        <Link key={id} href={`/shows/${permalink}`}>
+                          <li>
+                            <div>
+                              <Image
+                                loading="eager"
+                                layout="responsive"
+                                width={100}
+                                height={180}
+                                src={`${image_thumbnail_path}`}
+                                quality={40}
+                              />
+                            </div>
+                            <div>
+                              <strong> {name} </strong>
+                              <p>
+                                {start_date
+                                  ? `Lançado ${moment(start_date).fromNow(
+                                      true
+                                    )} atrás.`
+                                  : "Indefinido!"}
+                              </p>
+                            </div>
+                            <div>
+                              <span>{status}</span>
+                            </div>
+                          </li>
+                        </Link>
+                      );
+                    }
+                  )}
                 <Link href={`/search?body=${targetSearch}`}>
                   <ol>
                     <li>
-                      CLIQUE PARA VER {moviesSuggestions.totalMoviesResults}
+                      CLIQUE PARA VER {moviesSuggestions.total}
                       &nbsp;RESULTADOS.
                     </li>
                   </ol>
