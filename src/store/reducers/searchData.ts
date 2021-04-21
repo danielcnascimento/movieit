@@ -1,0 +1,3 @@
+const searchData = () => {};
+
+export { searchData };

@@ -1,9 +1,19 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 
+import { useDispatch } from "react-redux";
+import { getMoviesData } from "../store/actions/movieActions";
+import { useEffect } from "react";
+
 import MovieMain from "../components/MovieMain";
 
 export default function Home(props: GetMoviesDataType) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMoviesData({ ...props }));
+  }, [props]);
+
   return (
     <>
       <Head>
