@@ -8,4 +8,8 @@ export const Pages = styled.div`
   align-items: center;
 
   padding-bottom: 1.6rem;
+
+  .MuiPaginationItem-root {
+    color: var(--white);
+  }
 `;

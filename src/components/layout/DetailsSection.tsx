@@ -58,9 +58,16 @@ const DetailsSection = ({
             <h1>
               {name} &bull;&nbsp;
               <span>{network}</span>
-              {youtube_link && (
+              {youtube_link ? (
                 <a
                   href={`https://www.youtube.com/watch?v=${youtube_link}`}
+                  target="_blank"
+                >
+                  &nbsp;&bull; Assistir trailer
+                </a>
+              ) : (
+                <a
+                  href={`https://www.youtube.com/results?search_query=Official+Trailer%3A+${name}+${network}`}
                   target="_blank"
                 >
                   &nbsp;&bull; Assistir trailer
@@ -73,7 +80,8 @@ const DetailsSection = ({
             {rating_count > 0 ? (
               <>
                 &nbsp; <Rating name="read-only" value={ratingValue} readOnly />
-                &nbsp;{Number(rating).toFixed(1)}/10
+                &nbsp;{Number(rating).toFixed(1)}/10{" "}
+                <span className="ratingCounts">{rating_count}&nbsp;Votos</span>
               </>
             ) : (
               "Sem Avaliações :("

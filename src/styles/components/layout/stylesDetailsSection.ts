@@ -101,7 +101,6 @@ export const DetailMain = styled.main`
 
     .showTitle {
       font-weight: 500;
-
       text-align: start;
 
       span {
@@ -110,6 +109,7 @@ export const DetailMain = styled.main`
       }
 
       a {
+        text-transform: capitalize;
         cursor: alias;
       }
     }
@@ -123,15 +123,41 @@ export const DetailMain = styled.main`
 
       padding: 0.5rem;
 
-      border: 1px dashed var(--red);
+      border: 3px solid var(--gray-line);
       border-radius: 5px;
-      background: var(--dark-shade-1);
+      background: var(--dark-shade-0);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 
       font-size: 1.2rem;
       text-align: center;
 
-      svg {
+      span.svg {
         width: inherit;
+      }
+
+      span.MuiRating-iconFilled {
+        color: var(--red);
+      }
+
+      span.MuiRating-iconEmpty {
+        color: var(--white);
+      }
+
+      span.ratingCounts {
+        padding: 0.15rem 0.35rem;
+        margin-left: 0.5rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 0.855rem;
+        font-weight: 800;
+        color: var(--dark-shade-0);
+
+        background: var(--white);
+
+        border-radius: 1.5rem;
       }
     }
 
