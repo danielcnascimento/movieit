@@ -115,12 +115,6 @@ Entenda melhor sobre MovieIt:
   </p>
 </details>
 
-<h2 id="colab"> 🙌 Colab </h2>
-Special thanks to:
-<br />
-
-- [Hessa Ajaj](https://twitter.com/HesSoftDev) - Web & Mobile Developer
-
 <br />
 <br />
 
