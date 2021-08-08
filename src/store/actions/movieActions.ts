@@ -1,6 +1,6 @@
 const getMoviesData = (releases: GetMoviesDataType) => {
   return {
-    type: "GET_MOVIES",
+    type: 'GET_MOVIES',
     releases,
   };
 };

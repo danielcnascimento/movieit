@@ -1,6 +1,6 @@
 import { ActionTypes, GET_MOVIES } from "../actions/types";
 
-const state: GetMoviesDataType = {
+const initialState: GetMoviesDataType = {
   total: 0,
   page: 0,
   pages: 0,
@@ -8,7 +8,7 @@ const state: GetMoviesDataType = {
 };
 
 const movieData = (
-  state: GetMoviesDataType,
+  state = initialState,
   action: ActionTypes
 ): GetMoviesDataType => {
   switch (action.type) {

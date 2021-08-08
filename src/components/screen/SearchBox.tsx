@@ -21,6 +21,8 @@ import Fab from "@material-ui/core/Fab";
 import SearchIcon from "@material-ui/icons/SearchRounded";
 import CloseIcon from "@material-ui/icons/CloseRounded";
 import Loading from "../layout/Loading";
+import { useDispatch } from "react-redux";
+import { requestSuggestions } from "../../store/actions/saga-actions/sagaActions";
 
 function SearchBox() {
   const [isSearching, setIsSearching] = useState(false);
@@ -32,6 +34,7 @@ function SearchBox() {
     targetSearch,
   } = useContext(MovieDataContext);
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const handleSubmitSearchPage = (event: FormEvent) => {
     event.preventDefault();
@@ -67,7 +70,8 @@ function SearchBox() {
             <input
               type="text"
               onChange={(e) =>
-                searchHandler(e.target.value) && setQuery(e.target.value)
+                dispatch(requestSuggestions(e.target.value)) &&
+                setQuery(e.target.value)
               }
               placeholder="Procurar no MovieIt ..."
             />

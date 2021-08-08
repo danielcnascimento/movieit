@@ -1,21 +1,20 @@
-import { useContext } from "react";
+import { RootState } from "../../store/reducers";
 import Link from "next/link";
 
 import MovieCard from "../layout/MovieCard";
+import { useSelector } from "react-redux";
 
 import {
   ReleaseContainer,
   ReleaseTitle,
 } from "../../styles/components/stylesReleases";
 
-import { MovieDataContext } from "../../context/MoviesDataContext";
-
 interface ReleasesProps {
   title: string;
 }
 
 function Releases({ title }: ReleasesProps) {
-  const { moviesData } = useContext(MovieDataContext);
+  const moviesData = useSelector((state: RootState) => state.movieData);
 
   return (
     <>
